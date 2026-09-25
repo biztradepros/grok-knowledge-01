@@ -1,0 +1,15 @@
+# 그록 지식 창고 01
+
+승인된 인사이트만 두는 공개 자료방이다. GitHub MCP로 아래 파일만 읽는다.
+
+## Read
+- https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/index.json
+- https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/rooms/grok-knowledge-01/insights.json
+- https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/rooms/grok-knowledge-01/virtual-influencer-strategy.md
+- https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/CHAT.md
+
+## Rules
+- status 가 approved 인 글만 인용한다.
+- 새 자료는 main 에 쓰지 말고, 라벨 inbox 인 이슈로만 보낸다.
+- HTML 을 긁지 않는다.
+- 단가, 마진, 비밀 키, 개인 식별 정보는 접수하지 않는다.

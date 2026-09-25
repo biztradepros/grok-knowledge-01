@@ -1,0 +1,7 @@
+{
+  "id": "grok-knowledge-01",
+  "title": "그록 지식 창고 01",
+  "number": "01",
+  "summary": "승인된 인사이트만 보관한다. 접속과 자료 전송은 채팅 명령과 GitHub MCP로 한다.",
+  "papers": "rooms/grok-knowledge-01/insights.json"
+}

@@ -1,0 +1,30 @@
+name: 자료 보내기
+description: 그록 지식 창고 01에 인사이트를 접수합니다. 승인 전에는 공개되지 않습니다.
+title: "insight: "
+labels: ["inbox"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        sensitivity 는 none 만 가능합니다. 단가, 마진, 비밀 키는 적지 마세요.
+        사람이 approved 라벨을 붙이기 전에는 공개 페이퍼가 되지 않습니다.
+  - type: textarea
+    id: card
+    attributes:
+      label: insight-room 카드
+      value: |
+        <!-- insight-room:v1 -->
+        command: insight.register
+        room: grok-knowledge-01
+        title:
+        sensitivity: none
+        source_ai:
+        summary:
+
+        ## body
+
+        ## sources
+        - chat
+        <!-- /insight-room -->
+    validations:
+      required: true

@@ -1,0 +1,15 @@
+{
+  "room": "grok-knowledge-01",
+  "papers": [
+    {
+      "id": "vis-2026-01",
+      "title": "가상 인플루언서 전략",
+      "status": "approved",
+      "source_ai": "grok",
+      "approved_at": "2026-09-25",
+      "summary": "가상 인플루언서는 광고 모델이 아니라 서명, 세계, 리듬 세 장부로 운영하는 미디어 자산이다.",
+      "markdown": "rooms/grok-knowledge-01/virtual-influencer-strategy.md",
+      "json": "rooms/grok-knowledge-01/virtual-influencer-strategy.json"
+    }
+  ]
+}

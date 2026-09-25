@@ -1,0 +1,64 @@
+name: vet-inbox
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  issues: write
+jobs:
+  vet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check card
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body || "";
+            const names = (issue.labels || []).map((label) =>
+              typeof label === "string" ? label : label.name
+            );
+            const has = (name) => names.includes(name);
+            const blocked = /단가|마진|api[_ -]?key|\bsecret\b|비밀번호/i.test(body);
+            if (blocked && !has("blocked")) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ["blocked"],
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: "접수하지 않았습니다. 단가, 마진, 비밀로 보이는 표현이 있습니다.",
+              });
+              return;
+            }
+            const ok =
+              body.includes("<!-- insight-room:v1 -->") &&
+              body.includes("sensitivity: none") &&
+              body.includes("command: insight.register") &&
+              body.includes("room: grok-knowledge-01");
+            if (!ok && !has("inbox") && !has("blocked")) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: "형식이 맞지 않습니다. CHAT.md 의 insight-room:v1 블록만 본문에 넣어 주세요.",
+              });
+              return;
+            }
+            if (ok && !has("inbox") && !has("approved") && !blocked) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ["inbox"],
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: "접수했습니다. approved 라벨 전에는 공개 페이퍼가 되지 않습니다.",
+              });
+            }

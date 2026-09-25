@@ -1,0 +1,16 @@
+{
+  "name": "그록 지식 창고 01",
+  "id": "grok-knowledge-01",
+  "repo": "biztradepros/grok-knowledge-01",
+  "mcp": "github",
+  "updated": "2026-09-25",
+  "chat": "CHAT.md",
+  "rooms": [
+    {
+      "id": "grok-knowledge-01",
+      "title": "그록 지식 창고 01",
+      "papers": 1,
+      "index": "rooms/grok-knowledge-01/insights.json"
+    }
+  ]
+}
