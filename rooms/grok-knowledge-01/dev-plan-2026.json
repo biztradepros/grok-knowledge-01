@@ -1,0 +1,19 @@
+{
+  "id": "plan-2026-01",
+  "room": "grok-knowledge-01",
+  "title": "있는 사례 위에 올리는 개발 계획",
+  "status": "approved",
+  "source_ai": "grok",
+  "approved_at": "2026-09-25",
+  "sensitivity": "none",
+  "summary": "공개 원본은 GitHub 마크다운, 대기열은 GitHub 이슈로 유지한다. 서버형 데이터베이스와 자동 게시는 지금 도입하지 않는다.",
+  "summary_en": "Keep the public canon on GitHub markdown and the queue on GitHub issues. Do not add a hosted database or an auto-posting engine until a stated later phase.",
+  "markdown": "rooms/grok-knowledge-01/dev-plan-2026.md",
+  "decisions": [
+    "public-canon: github-markdown",
+    "queue: github-issues-inbox",
+    "hosted-db: not-now",
+    "auto-post: never-in-phase-1",
+    "new-code: only-after-repeated-mistake"
+  ]
+}

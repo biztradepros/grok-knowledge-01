@@ -6,6 +6,7 @@
 - https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/index.json
 - https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/rooms/grok-knowledge-01/insights.json
 - https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/rooms/grok-knowledge-01/virtual-influencer-strategy.md
+- https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/rooms/grok-knowledge-01/dev-plan-2026.md
 - https://raw.githubusercontent.com/biztradepros/grok-knowledge-01/main/CHAT.md
 
 ## Rules

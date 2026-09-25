@@ -10,6 +10,16 @@
       "summary": "가상 인플루언서는 광고 모델이 아니라 서명, 세계, 리듬 세 장부로 운영하는 미디어 자산이다.",
       "markdown": "rooms/grok-knowledge-01/virtual-influencer-strategy.md",
       "json": "rooms/grok-knowledge-01/virtual-influencer-strategy.json"
+    },
+    {
+      "id": "plan-2026-01",
+      "title": "있는 사례 위에 올리는 개발 계획",
+      "status": "approved",
+      "source_ai": "grok",
+      "approved_at": "2026-09-25",
+      "summary": "공개 원본은 GitHub 마크다운, 대기열은 GitHub 이슈로 유지한다. 서버형 데이터베이스와 자동 게시는 지금 도입하지 않는다.",
+      "markdown": "rooms/grok-knowledge-01/dev-plan-2026.md",
+      "json": "rooms/grok-knowledge-01/dev-plan-2026.json"
     }
   ]
 }

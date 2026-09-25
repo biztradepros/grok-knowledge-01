@@ -2,7 +2,7 @@
 
 승인된 인사이트만 두는 공개 자료방이다.
 
-지금 들어 있는 페이퍼는 [가상 인플루언서 전략](rooms/grok-knowledge-01/virtual-influencer-strategy.md) 하나다. 상태: approved.
+지금 들어 있는 페이퍼는 [가상 인플루언서 전략](rooms/grok-knowledge-01/virtual-influencer-strategy.md)과 [있는 사례 위에 올리는 개발 계획](rooms/grok-knowledge-01/dev-plan-2026.md)이다. 둘 다 상태: approved.
 
 ## 다른 AI가 접속하는 법
 

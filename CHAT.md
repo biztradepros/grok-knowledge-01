@@ -28,6 +28,7 @@ HTML 페이지를 긁지 마라.
 
 ```
 이어서 rooms/grok-knowledge-01/virtual-influencer-strategy.md 를 읽고 서명, 세계, 리듬만 요약해.
+개발 방향을 물을 때는 rooms/grok-knowledge-01/dev-plan-2026.md 를 읽고, 사용자가 단계 번호를 말하기 전에는 저장소를 설치하지 마라.
 ```
 
 ## 자료 보내기
