@@ -1,0 +1,24 @@
+{
+  "_comment": "공개 금지 규칙. 다른 AI나 사람이 단어·패턴을 추가해도 된다. tools/vet.js 가 읽는다.",
+  "required_fields": ["command", "room", "title", "sensitivity", "source_ai", "summary"],
+  "command": "insight.register",
+  "sensitivity": "none",
+  "keywords": [
+    "단가", "원가", "매입가", "마진", "공장 연락처", "거래처 연락처", "거래처 단가",
+    "비밀번호", "내부용", "대외비", "CONFIDENTIAL"
+  ],
+  "patterns": {
+    "phone_kr": "01[016789][-\\s.]?\\d{3,4}[-\\s.]?\\d{4}",
+    "phone_intl": "\\+\\d{1,3}[-\\s]?\\d{2,4}[-\\s]?\\d{3,4}[-\\s]?\\d{4}",
+    "email": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+    "rrn_kr": "\\b\\d{6}[-\\s]?[1-4]\\d{6}\\b",
+    "biz_no_kr": "\\b\\d{3}-\\d{2}-\\d{5}\\b",
+    "account_no": "\\b\\d{3,6}-\\d{2,6}-\\d{4,8}\\b",
+    "price_krw": "(단가|원가|매입가?|공급가)\\s*[:：]?\\s*[\\d,.]+\\s*(원|위안|元|달러|\\$|USD|CNY)",
+    "github_token": "(ghp|gho|ghs|ghu|github_pat)_[A-Za-z0-9_]{20,}",
+    "api_key": "\\b(sk|pk|rk)-[A-Za-z0-9_-]{16,}",
+    "api_key_word": "api[_ -]?key\\s*[:=]",
+    "secret_word": "\\bsecret\\s*[:=]"
+  },
+  "slug_pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+}
