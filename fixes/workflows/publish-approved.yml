@@ -1,0 +1,107 @@
+name: publish-approved
+# F2: approved 라벨을 '승인자'가 붙였을 때만 페이퍼로 자동 게시한다.
+#  - 승인자: 저장소 변수 APPROVER (없으면 저장소 주인)
+#  - 다른 계정이 붙이면 라벨을 떼고 경고한다
+#  - 게시 직전에 같은 규칙(tools/vet.js)으로 다시 검사한다
+#  - rooms/<room>/<slug>.md 생성 + insights.json·index.json·llms.txt 갱신 + 이슈 닫기
+# 이 파일은 .github/workflows/publish-approved.yml 로 옮겨야 동작한다.
+on:
+  issues:
+    types: [labeled]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: publish-approved
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gate and publish
+        uses: actions/github-script@v7
+        env:
+          APPROVER: ${{ vars.APPROVER || github.repository_owner }}
+          # F1: 비공개 접수함에서 돌릴 때 게시 대상 공개 저장소와 그 쓰기 토큰
+          TARGET_REPO: ${{ vars.TARGET_REPO }}
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        with:
+          script: |
+            const ws = process.env.GITHUB_WORKSPACE;
+            const { loadRules, vetText, toMarkdown } = require(`${ws}/tools/vet.js`);
+            const rules = loadRules(ws);
+            const repo = { owner: context.repo.owner, repo: context.repo.repo };
+            const issue = context.payload.issue;
+            const who = context.payload.sender.login;
+            const [tOwner, tRepo] = (process.env.TARGET_REPO || `${repo.owner}/${repo.repo}`).split("/");
+            const target = { owner: tOwner, repo: tRepo };
+            const out = process.env.TARGET_REPO ? getOctokit(process.env.PUBLISH_TOKEN) : github;
+            const say = (body) => github.rest.issues.createComment({ ...repo, issue_number: issue.number, body });
+            const unlabel = () => github.rest.issues.removeLabel({ ...repo, issue_number: issue.number, name: "approved" }).catch(() => {});
+
+            // 1) 승인자 확인
+            if (who.toLowerCase() !== process.env.APPROVER.toLowerCase()) {
+              await unlabel();
+              await say(`approved 는 승인자(${process.env.APPROVER})만 붙일 수 있습니다. @${who} 가 붙인 라벨을 뗐습니다.`);
+              return;
+            }
+            const names = issue.labels.map((l) => l.name);
+            if (names.includes("blocked")) { await unlabel(); await say("blocked 상태라 게시하지 않았습니다."); return; }
+
+            // 2) 재검사
+            const list = await out.rest.repos.getContent({ ...target, path: "rooms" });
+            const existingRooms = list.data.filter((d) => d.type === "dir").map((d) => d.name);
+            const r = vetText(issue.body || "", rules, { existingRooms });
+            if (!r.ok) {
+              await unlabel();
+              await say(`게시하지 않았습니다:\n- ${[...r.errors, ...r.sensitive].join("\n- ")}`);
+              return;
+            }
+
+            // 3) 파일 쓰기 (contents API: 커밋 1개씩)
+            const f = r.card.fields;
+            const slug = f.slug || `insight-${issue.number}`;
+            const today = new Date().toISOString().slice(0, 10);
+            const mdPath = `rooms/${f.room}/${slug}.md`;
+            const put = async (p, text, message) => {
+              let sha;
+              try { sha = (await out.rest.repos.getContent({ ...target, path: p })).data.sha; } catch (e) {}
+              await out.rest.repos.createOrUpdateFileContents({ ...target, path: p, message, sha, content: Buffer.from(text, "utf8").toString("base64") });
+            };
+            const readJson = async (p, fallback) => {
+              try { const d = (await out.rest.repos.getContent({ ...target, path: p })).data; return JSON.parse(Buffer.from(d.content, "base64").toString("utf8")); }
+              catch (e) { return fallback; }
+            };
+
+            await put(mdPath, toMarkdown(r.card, { issueNumber: issue.number, approvedAt: today, approver: who }), `publish: ${f.title} (#${issue.number})`);
+
+            const insPath = `rooms/${f.room}/insights.json`;
+            const ins = await readJson(insPath, { room: f.room, papers: [] });
+            ins.papers = (ins.papers || []).filter((p) => p.markdown !== mdPath);
+            ins.papers.push({ id: `${slug}`, title: f.title, status: "approved", source_ai: f.source_ai, approved_at: today, summary: f.summary, markdown: mdPath, issue: issue.number });
+            await put(insPath, JSON.stringify(ins, null, 2) + "\n", `index: ${f.room} +1`);
+
+            const idx = await readJson("index.json", { rooms: [] });
+            idx.updated = today;
+            const room = (idx.rooms || []).find((x) => x.id === f.room);
+            if (room) room.papers = ins.papers.length;
+            else (idx.rooms = idx.rooms || []).push({ id: f.room, title: f.room, papers: ins.papers.length, index: insPath });
+            await put("index.json", JSON.stringify(idx, null, 2) + "\n", "index: update");
+
+            // llms.txt 의 Read 목록에 원문 주소 추가
+            try {
+              const d = (await out.rest.repos.getContent({ ...target, path: "llms.txt" })).data;
+              let txt = Buffer.from(d.content, "base64").toString("utf8");
+              const raw = `- https://raw.githubusercontent.com/${target.owner}/${target.repo}/main/${mdPath}`;
+              if (!txt.includes(raw)) {
+                txt = txt.replace(/(## Read\n(?:- .*\n)*)/, `$1${raw}\n`);
+                await put("llms.txt", txt, "llms: add paper");
+              }
+            } catch (e) { core.warning(`llms.txt 갱신 실패: ${e.message}`); }
+
+            // 4) 마무리
+            await github.rest.issues.removeLabel({ ...repo, issue_number: issue.number, name: "inbox" }).catch(() => {});
+            await say(`게시했습니다: https://github.com/${target.owner}/${target.repo}/blob/main/${mdPath}`);
+            await github.rest.issues.update({ ...repo, issue_number: issue.number, state: "closed", state_reason: "completed" });
