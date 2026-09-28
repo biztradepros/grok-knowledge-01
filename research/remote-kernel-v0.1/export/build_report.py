@@ -110,9 +110,11 @@ def main():
     src = (ROOT / 'REPORT.md').read_text()
     lines = src.splitlines()
     title = lines[0].lstrip('# ').strip()
-    meta_author = lines[2].strip()
-    meta_scope = lines[3].replace('범위:', '').strip()
-    body_md = normalize_lists('\n'.join(lines[4:]))
+    meta_author = next(l for l in lines if l.startswith('작성:')).strip()
+    meta_scope = next(l for l in lines if l.startswith('범위:')).replace('범위:', '').strip()
+    first_body = next(i for i, l in enumerate(lines) if l.startswith('범위:')) + 1
+    banner = [l for l in lines[1:first_body] if l.startswith('>')]
+    body_md = normalize_lists('\n'.join(banner + [''] + lines[first_body:]))
 
     md = markdown.Markdown(extensions=['tables', 'toc', 'pymdownx.superfences', 'sane_lists'],
                            extension_configs={'toc': {'toc_depth': '2-2', 'permalink': False}})

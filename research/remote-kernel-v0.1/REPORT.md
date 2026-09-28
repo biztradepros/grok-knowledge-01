@@ -1,5 +1,7 @@
 # REMOTE SYSTEM ADVANCED R&D — Minimum Remote Kernel v0.1
 
+> **SUPERSEDED — RED-TEAM-001 (`research/redteam-001/REDTEAM-001.md`)에서 대부분 REJECT됨.** 핵심 주장 6건이 공격으로 깨졌다. 이 문서를 구현 근거로 쓰지 말 것.
+
 작성: REMOTE SYSTEM ADVANCED R&D ENGINEER (Claude) · 2026-09-28 · 연구 브랜치 `claude/remote-system-advanced-rd-5x2gsb`
 범위: 연구·설계와 실행 가능한 참조 구현. 9/7/4 Production, main, 2번 코드는 수정하지 않았다.
 
