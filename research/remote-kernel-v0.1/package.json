@@ -1,0 +1,13 @@
+{
+  "name": "remote-kernel-v0.1-research",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Research reference: minimum remote kernel (IDENTIFY/INSPECT/STEP/RESULT), site adapter fixtures for 9/7/4, bundled browser harness. Not production.",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "build:harness": "node harness/build.js",
+    "test:browser": "node test/browser/harness.browser.js"
+  },
+  "engines": { "node": ">=20" }
+}

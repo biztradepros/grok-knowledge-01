@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "remote.result.v0.1",
+  "title": "Remote Result Envelope v0.1",
+  "type": "object",
+  "required": [
+    "kind",
+    "protocol",
+    "kernel_version",
+    "adapter",
+    "site_id",
+    "command_id",
+    "idempotency_key",
+    "session_id",
+    "verb",
+    "status",
+    "reason_code",
+    "hold",
+    "data",
+    "twin",
+    "real_state_changed",
+    "real_state_probe",
+    "side_effect_count",
+    "evidence_refs",
+    "lineage",
+    "timing",
+    "result_hash"
+  ],
+  "properties": {
+    "kind": {
+      "const": "remote.result"
+    },
+    "protocol": {
+      "const": "remote.v0.1"
+    },
+    "kernel_version": {
+      "type": "string"
+    },
+    "adapter": {
+      "type": "object",
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "site_id": {
+      "type": "string",
+      "description": "Always the answering site, never the requested one."
+    },
+    "command_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "idempotency_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verb": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "OK",
+        "HOLD",
+        "COMMAND_REJECTED",
+        "FAILED",
+        "TIMEOUT"
+      ]
+    },
+    "reason_code": {
+      "enum": [
+        null,
+        "SCHEMA_INVALID",
+        "SITE_MISMATCH",
+        "UNKNOWN_VERB",
+        "NO_SESSION",
+        "SESSION_EXPIRED",
+        "AUTHORITY_INSUFFICIENT",
+        "HUMAN_GATE_REQUIRED",
+        "R2_DISABLED",
+        "IDEMPOTENCY_CONFLICT",
+        "STALE_TWIN",
+        "TERMINAL_STAGE",
+        "ILLEGAL_TRANSITION",
+        "NOT_FOUND",
+        "ACTION_NOT_EXECUTABLE",
+        "ADAPTER_ERROR",
+        "ADAPTER_TIMEOUT",
+        "REAL_STATE_CHANGED",
+        "SIDE_EFFECT_ATTEMPTED",
+        "LEAK_BLOCKED",
+        "KERNEL_ERROR"
+      ],
+      "description": "null when status is OK or HOLD."
+    },
+    "hold": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "stage": {
+          "type": "string"
+        },
+        "at_seq": {
+          "type": "integer"
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "detail"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              },
+              "evidence_key": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "description": "Site-neutral payload. Never contains FORBIDDEN_KEYS (prompt, model, secret, token, ...)."
+    },
+    "twin": {
+      "type": "object",
+      "required": [
+        "stage_before",
+        "stage_after",
+        "seq_before",
+        "seq_after",
+        "hash_before",
+        "hash_after"
+      ],
+      "properties": {
+        "stage_before": {
+          "type": "string"
+        },
+        "stage_after": {
+          "type": "string"
+        },
+        "seq_before": {
+          "type": "integer"
+        },
+        "seq_after": {
+          "type": "integer"
+        },
+        "hash_before": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "hash_after": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "real_state_changed": {
+      "type": "boolean"
+    },
+    "real_state_probe": {
+      "enum": [
+        "MEASURED",
+        "NOT_REACHED"
+      ],
+      "description": "MEASURED = real-state fingerprint taken before and after the adapter ran. NOT_REACHED = the adapter was never called."
+    },
+    "side_effect_count": {
+      "const": 0,
+      "description": "Executed external effects. Always 0 in v0.1: the effect sink refuses every attempt."
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "command_hash",
+        "issued_by",
+        "retry_of",
+        "parent_result_hash",
+        "prev_result_hash"
+      ],
+      "properties": {
+        "command_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "issued_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retry_of": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parent_result_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "prev_result_hash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Hash chain over every result this site produced."
+        }
+      }
+    },
+    "replayed": {
+      "type": "boolean",
+      "description": "Present and true only on an idempotent replay. Excluded from result_hash."
+    },
+    "timing": {
+      "type": "object",
+      "description": "Wall clock. Excluded from result_hash.",
+      "properties": {
+        "received_at": {
+          "type": "string"
+        },
+        "completed_at": {
+          "type": "string"
+        }
+      }
+    },
+    "result_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}

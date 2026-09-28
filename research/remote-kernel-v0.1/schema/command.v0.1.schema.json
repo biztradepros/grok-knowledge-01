@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "remote.command.v0.1",
+  "title": "Remote Command Envelope v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "protocol",
+    "command_id",
+    "idempotency_key",
+    "site_id",
+    "verb",
+    "issued_by"
+  ],
+  "properties": {
+    "kind": {
+      "const": "remote.command"
+    },
+    "protocol": {
+      "const": "remote.v0.1"
+    },
+    "command_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+      "description": "Unique per intent; RESULT looks results up by it."
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+      "description": "Same key + same command_hash => stored result replayed. Same key + different payload => IDEMPOTENCY_CONFLICT."
+    },
+    "site_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+      "description": "Target site. Mismatch => SITE_MISMATCH; never forwarded."
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+      "description": "From IDENTIFY. Required for every verb except IDENTIFY."
+    },
+    "verb": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{1,40}$",
+      "description": "IDENTIFY | INSPECT | STEP | RESULT, or a site-declared action (refused in v0.1)."
+    },
+    "args": {
+      "type": "object",
+      "properties": {
+        "requested_authority": {
+          "enum": [
+            "R0",
+            "R1",
+            "R2"
+          ],
+          "description": "IDENTIFY only."
+        },
+        "view": {
+          "enum": [
+            "twin",
+            "hold"
+          ],
+          "description": "INSPECT only. hold = EXPLAIN_HOLD."
+        },
+        "command_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+          "description": "RESULT only."
+        }
+      }
+    },
+    "expect_seq": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Required for STEP. Optimistic lock on twin.seq."
+    },
+    "timeout_ms": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30000
+    },
+    "issued_by": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{4,128}$",
+      "description": "HQ operator / agent id, recorded in lineage."
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "retry_of": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._:-]{4,128}$"
+        },
+        "parent_result_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "sent_at": {
+      "type": "string",
+      "description": "Transport metadata; excluded from command_hash."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verb": {
+            "const": "STEP"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "session_id",
+          "expect_seq"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "verb": {
+            "not": {
+              "const": "IDENTIFY"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "session_id"
+        ]
+      }
+    }
+  ]
+}

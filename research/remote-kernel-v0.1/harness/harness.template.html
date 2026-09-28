@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- No network of any kind: the harness cannot fetch, post or exfiltrate. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'">
+<title>Remote Kernel Harness</title>
+<style>
+  :root { --bg:#f7f7f5; --fg:#1d1d1b; --muted:#6b6b66; --line:#d9d9d3; --card:#fff;
+          --ok:#1f7a3a; --hold:#9a6a00; --rej:#a3262a; --fail:#6d2aa3; --accent:#24527a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161615; --fg:#ececea; --muted:#9b9b95; --line:#34342f; --card:#1f1f1d;
+          --ok:#5cc47c; --hold:#e0b040; --rej:#f07075; --fail:#b98ae8; --accent:#7fb2e0; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.45 system-ui, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  h1 { font-size:18px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:12px; margin-bottom:12px; }
+  .banner { border:1px dashed var(--hold); padding:6px 10px; border-radius:6px; font-size:12px; margin-bottom:12px; }
+  .grid { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:12px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0,1fr); } }
+  section { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px; }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 8px; }
+  button, select { font:inherit; padding:6px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--fg); cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  .row { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:8px; }
+  .site-side { border-color:var(--hold); }
+  pre { background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:8px; overflow:auto; max-height:420px; font-size:12px; margin:0; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-weight:600; font-size:12px; border:1px solid currentColor; }
+  [data-status="OK"] { color:var(--ok); } [data-status="HOLD"] { color:var(--hold); }
+  [data-status="COMMAND_REJECTED"] { color:var(--rej); } [data-status="FAILED"], [data-status="TIMEOUT"] { color:var(--fail); }
+  [data-status="PASS"] { color:var(--ok); } [data-status="FAIL"] { color:var(--rej); }
+  dl { display:grid; grid-template-columns:max-content 1fr; gap:2px 10px; margin:0 0 8px; font-size:13px; }
+  dt { color:var(--muted); } dd { margin:0; font-family: ui-monospace, monospace; overflow-wrap:anywhere; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  td, th { text-align:left; border-bottom:1px solid var(--line); padding:4px; vertical-align:top; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Remote Kernel v0.1 — Browser Harness</h1>
+  <div class="sub">protocol <span id="protocol"></span> · kernel <span id="kver"></span> · build __BUILD_COMMIT__ · __BUILD_TIME__</div>
+  <div class="banner">FIXTURE SITES ONLY. 9/7/4 here are stand-ins that prove the contract; they are not the real factories. No network is possible from this page (CSP).</div>
+
+  <div class="grid">
+    <section>
+      <h2>HQ console (protocol only)</h2>
+      <div class="row">
+        <label for="site">site</label>
+        <select id="site"></select>
+        <button id="reset" title="discard this site's twin and ledger">reset site</button>
+      </div>
+      <div class="row">
+        <button id="btn-identify">IDENTIFY (R1)</button>
+        <button id="btn-inspect">INSPECT</button>
+        <button id="btn-step">STEP</button>
+        <button id="btn-explain">EXPLAIN_HOLD</button>
+        <button id="btn-result">RESULT (last)</button>
+        <button id="btn-publish">PUBLISH</button>
+      </div>
+      <dl>
+        <dt>status</dt><dd><span id="status" class="badge" data-status="">—</span> <span id="reason"></span></dd>
+        <dt>stage</dt><dd id="stage" data-stage="">—</dd>
+        <dt>seq</dt><dd id="seq">—</dd>
+        <dt>real state</dt><dd id="real">—</dd>
+        <dt>side effects</dt><dd id="effects">—</dd>
+        <dt>ledger</dt><dd id="chain" data-ok="">—</dd>
+      </dl>
+      <pre id="packet" aria-label="last result packet">{}</pre>
+    </section>
+
+    <section class="site-side">
+      <h2>Site side (not reachable from HQ)</h2>
+      <p class="sub">Simulates the factory doing its own work (recording evidence, sealing an AI artifact, loading a card recipe). HQ has no command for this.</p>
+      <div class="row"><button id="btn-site-work">site: do work for next stage</button></div>
+      <h2>Conformance (all sites)</h2>
+      <div class="row"><button id="btn-conformance">run C01–C12 × 3 sites</button>
+        <span id="conformance-summary" data-pass="" data-fail=""></span></div>
+      <table><thead><tr><th>site</th><th>id</th><th>check</th><th>result</th></tr></thead><tbody id="conformance"></tbody></table>
+    </section>
+  </div>
+</main>
+<script>
+/*__BUNDLE__*/
+</script>
+<script>
+(() => {
+  'use strict';
+  const RK = window.RemoteKernel;
+  const $ = (id) => document.getElementById(id);
+  $('protocol').textContent = RK.PROTOCOL;
+  $('kver').textContent = RK.KERNEL_VERSION;
+
+  const sites = {};          // key -> { fixture, site, kernel, site_id }
+  const transports = {};
+  function boot(fx) {
+    const site = fx.makeSite();
+    const kernel = RK.createKernel({ adapter: site.adapter });
+    const site_id = site.adapter.identity.site_id;
+    sites[fx.key] = { fx, site, kernel, site_id };
+    transports[site_id] = (cmd) => kernel.handle(cmd);
+  }
+  RK.SITE_FIXTURES.forEach(boot);
+  let hq = RK.createHqClient({ transports, issued_by: 'hq.harness' });
+  let last = null;
+
+  for (const fx of RK.SITE_FIXTURES) {
+    const o = document.createElement('option');
+    o.value = fx.key;
+    o.textContent = `${fx.key} · ${sites[fx.key].site.adapter.identity.site_name}`;
+    $('site').appendChild(o);
+  }
+  const cur = () => sites[$('site').value];
+
+  function render(res) {
+    last = res;
+    const s = cur();
+    const twin = s.kernel.twin();
+    $('status').textContent = res.status;
+    $('status').dataset.status = res.status;
+    $('reason').textContent = res.reason_code ?? '';
+    $('stage').textContent = twin.stage;
+    $('stage').dataset.stage = twin.stage;
+    $('seq').textContent = String(twin.seq);
+    $('real').textContent = `changed=${res.real_state_changed} (${res.real_state_probe ?? 'n/a'})`;
+    $('effects').textContent = String(res.side_effect_count ?? 'n/a');
+    const chain = RK.verifyChain(s.kernel.ledger());
+    $('chain').textContent = `${chain.length} results · chain ${chain.ok ? 'verified' : 'BROKEN'}`;
+    $('chain').dataset.ok = String(chain.ok);
+    $('packet').textContent = JSON.stringify(res, null, 2);
+  }
+  function refreshIdle() {
+    const twin = cur().kernel.twin();
+    $('stage').textContent = twin.stage; $('stage').dataset.stage = twin.stage; $('seq').textContent = String(twin.seq);
+  }
+
+  const on = (id, fn) => $(id).addEventListener('click', async () => { render(await fn(cur().site_id)); });
+  on('btn-identify', (id) => hq.identify(id, 'R1'));
+  on('btn-inspect', (id) => hq.inspect(id));
+  on('btn-step', (id) => hq.step(id, { expect_seq: sites[$('site').value].kernel.twin().seq }));
+  on('btn-explain', (id) => hq.explainHold(id));
+  on('btn-result', (id) => hq.result(id, last?.command_id ?? 'cmd.none'));
+  on('btn-publish', (id) => hq.command(id, 'PUBLISH', { channel: 'harness' }));
+  $('btn-site-work').addEventListener('click', () => {
+    const s = cur();
+    const stages = s.site.adapter.pipeline.stages;
+    const next = stages[stages.indexOf(s.kernel.twin().stage) + 1];
+    if (next) s.fx.prepareAdvance(s.site.engine, next);
+    $('btn-site-work').dataset.last = next ?? 'terminal';
+  });
+  $('reset').addEventListener('click', () => {
+    boot(cur().fx);
+    hq = RK.createHqClient({ transports, issued_by: 'hq.harness' });
+    last = null; $('packet').textContent = '{}'; $('status').textContent = '—'; $('status').dataset.status = '';
+    refreshIdle();
+  });
+  $('site').addEventListener('change', refreshIdle);
+
+  let conformance = [];
+  $('btn-conformance').addEventListener('click', async () => {
+    conformance = [];
+    const body = $('conformance');
+    body.textContent = '';
+    for (const fx of RK.SITE_FIXTURES) {
+      const checks = await RK.runConformance({ makeSite: fx.makeSite, prepareAdvance: fx.prepareAdvance, makeKernel: (adapter) => RK.createKernel({ adapter }) });
+      for (const c of checks) {
+        conformance.push({ site: fx.key, ...c });
+        const tr = document.createElement('tr');
+        for (const v of [fx.key, c.id, c.title]) { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); }
+        const td = document.createElement('td'); td.textContent = c.status; td.dataset.status = c.status; td.title = c.detail; tr.appendChild(td);
+        body.appendChild(tr);
+      }
+    }
+    const pass = conformance.filter((c) => c.status === 'PASS').length;
+    const fail = conformance.length - pass;
+    $('conformance-summary').textContent = `${pass}/${conformance.length} PASS`;
+    $('conformance-summary').dataset.pass = String(pass);
+    $('conformance-summary').dataset.fail = String(fail);
+  });
+
+  refreshIdle();
+  // Evidence hook for the browser test: everything needed to audit this run, as plain JSON.
+  window.__harness = Object.freeze({
+    evidence: () => ({
+      protocol: RK.PROTOCOL,
+      kernel_version: RK.KERNEL_VERSION,
+      sites: Object.fromEntries(Object.entries(sites).map(([k, s]) => {
+        const ev = s.kernel.exportEvidence();
+        return [k, { ...ev, chain: RK.verifyChain(s.kernel.ledger()), replay: RK.replayTwin(ev.genesis, s.kernel.ledger()) }];
+      })),
+      conformance,
+    }),
+  });
+})();
+</script>
+</body>
+</html>

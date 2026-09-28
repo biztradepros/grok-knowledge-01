@@ -1,0 +1,54 @@
+# TEMPLATE — not active in this repository (it lives outside .github/workflows on purpose).
+# Copy to <factory-repo>/.github/workflows/ only after HQ approval (see REPORT.md §12).
+#
+# Private-repo browser verification: the browser goes to the code (inside the runner, via
+# actions/checkout's own token); only evidence comes back out, as a repo-private artifact.
+# No preview URL, no third-party host, no secrets, no deploy.
+name: remote-browser-harness
+
+on:
+  pull_request:
+    paths: ['remote/**', 'research/remote-kernel-v0.1/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read            # nothing else: cannot push, comment, deploy or publish
+
+concurrency:
+  group: remote-harness-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/remote-kernel-v0.1   # adjust to remote/ in a factory repo
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Kernel + conformance (node)
+        run: npm test
+      - name: Build standalone harness (single HTML, no network)
+        run: npm run build:harness
+      - name: Install pinned Playwright + Chromium
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser click test (file://)
+        run: npm run test:browser
+      - name: Upload evidence (private to repo readers)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: remote-harness-evidence-${{ github.sha }}
+          path: |
+            research/remote-kernel-v0.1/evidence/
+            research/remote-kernel-v0.1/dist/remote-harness.html
+          retention-days: 14
+          if-no-files-found: error

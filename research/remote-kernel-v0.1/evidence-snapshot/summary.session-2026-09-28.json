@@ -1,0 +1,18 @@
+{
+  "target": "file://<repo>/research/remote-kernel-v0.1/dist/remote-harness.html",
+  "browser": "141.0.7390.37",
+  "commit": null,
+  "verdicts": {
+    "F07_STEP_HOLD_THEN_ADVANCE": "PASS",
+    "POSITIVE_STEP": "PASS",
+    "NEGATIVE_PUBLISH": "PASS",
+    "REAL_STATE_CHANGED": false,
+    "SIDE_EFFECT_COUNT": 0,
+    "F09_NO_PROMPT_LEAK": "PASS",
+    "CONFORMANCE": "36/36",
+    "NETWORK_ISOLATION": "PASS"
+  },
+  "off_origin_requests": [],
+  "console_errors": [],
+  "note": "Fixture sites (9/7/4 stand-ins). Proves the harness path and kernel contract, not the real factories."
+}
