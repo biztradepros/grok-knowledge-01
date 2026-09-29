@@ -2,7 +2,7 @@
 id: CLAUDE-CL2-APPLIED-RD-001
 title: FROM ULTRA THEORY TO SMALL WORKING RESULT — Justified Result Record v0.1
 room: CL2 (CL1 에 전달하지 않음)
-status: proposed
+status: accepted (HQ, CL2-APPLIED-RD-001-CLOSE)
 result: WORKS
 date: 2026-09-29
 ---
@@ -115,7 +115,7 @@ PASS
 2. **`produced_by` 인증** — 자기 선언이다. 누가 만들었는지는 증명되지 않는다 (ULTRA T2).
 3. **`rule_version` 사용** — 기록만 되고 아직 어떤 판정에도 쓰이지 않는다. 규칙이 바뀐 뒤 옛 판정을 재현하는 방법이 없다.
 
-## NEXT (하나)
+## NEXT (하나) — HQ 결정: BACKLOG, 착공하지 않음
 
 **저장된 JRR 기록이 작성 후 수정되었는지 탐지할 수 있는가?**
 자가시험 하나: B 의 `consumes` 를 한 글자 바꾸면 검사기가 FAIL 을 낸다.
