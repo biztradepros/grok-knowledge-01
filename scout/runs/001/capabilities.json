@@ -1,0 +1,2092 @@
+{
+  "lot": "DKSC-CLAUDE-CODE-SCOUT-001",
+  "run_tag": "DKSC-0929201853",
+  "authority": "NONE",
+  "question": "PDF, 문서, Excel 또는 카탈로그에서 구조화된 데이터를 자동 추출하는 데 사용할 수 있는 공개 Skill 또는 코드 도구를 찾아줘.",
+  "count": 15,
+  "capabilities": [
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-001-koraynar-doc-extract-mcp",
+      "NAME": "koraynar/doc-extract-mcp",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "koraynar",
+      "SOURCE_URL": "https://github.com/koraynar/doc-extract-mcp",
+      "REPOSITORY_URL": "https://github.com/koraynar/doc-extract-mcp",
+      "DESCRIPTION": "Document extraction tooling: read PDFs, text, CSV and JSON, inspect metadata, chunk long documents, validate against JSON Schema and write JSON/CSV output.",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출 -> 구조화된 데이터/JSON",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "CSV"
+      ],
+      "OUTPUT": [
+        "TEXT",
+        "JSON"
+      ],
+      "TOOLS": "UNKNOWN",
+      "API": "UNKNOWN",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "UNKNOWN",
+      "AUTH_REQUIRED": "UNKNOWN",
+      "COST": "FREE_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-08-28T17:56:15.763331Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "SPREADSHEET",
+        "STRUCTURED_OUTPUT",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 15,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "OUTPUT": [
+          "structured_data"
+        ],
+        "SECONDARY": [
+          "json"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS",
+        "S4_OFFICIAL_MCP_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "none detected",
+        "MCP": "registry entry",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "MCP registry updatedAt",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F030",
+          "F039",
+          "F042",
+          "F043"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/koraynar/doc-extract-mcp/HEAD/README.md",
+            "fetch_id": "F039",
+            "status": 200,
+            "ok": true,
+            "bytes": 6169
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/koraynar/doc-extract-mcp/HEAD/SKILL.md",
+            "fetch_id": "F040",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/koraynar/doc-extract-mcp/HEAD/package.json",
+            "fetch_id": "F041",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/koraynar/doc-extract-mcp/HEAD/pyproject.toml",
+            "fetch_id": "F042",
+            "status": 200,
+            "ok": true,
+            "bytes": 1302
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/koraynar/doc-extract-mcp/HEAD/LICENSE",
+            "fetch_id": "F043",
+            "status": 200,
+            "ok": true,
+            "bytes": 1066
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R003",
+          "R024"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS",
+          "S4_OFFICIAL_MCP_REGISTRY"
+        ],
+        "note": "1 duplicate listing(s) merged by shared repository/package key"
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL+OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski",
+      "NAME": "PSPDFKit-labs/nutrient-agent-skill",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "PSPDFKit-labs",
+      "SOURCE_URL": "https://github.com/PSPDFKit-labs/nutrient-agent-skill",
+      "REPOSITORY_URL": "https://github.com/PSPDFKit-labs/nutrient-agent-skill",
+      "DESCRIPTION": "Document processing with Nutrient DWS API: convert (PDF/DOCX/XLSX/PPTX/HTML/images), extract text/tables, OCR (20+ languages), redact PII (pattern + AI), watermark, digital signatures, form filling. MCP server also available.",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word",
+        "XLSX/Excel",
+        "PPTX",
+        "IMAGE",
+        "HTML/URL"
+      ],
+      "OUTPUT": [
+        "PDF",
+        "EXCEL"
+      ],
+      "TOOLS": "UNKNOWN",
+      "API": "YES - keys: NUTRIENT_API_KEY; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - NUTRIENT_API_KEY",
+      "COST": "PAID_OR_METERED_MENTIONED",
+      "LICENSE": "UNKNOWN",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E2_PRIMARY_DOC_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "TABLE_EXTRACTION",
+        "SPREADSHEET",
+        "CONVERSION",
+        "WEB_EXTRACTION",
+        "FORMS",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 15,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "code_tool"
+        ],
+        "SECONDARY": [
+          "table",
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "none detected",
+        "MCP": "text mention",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F024",
+          "F044"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/PSPDFKit-labs/nutrient-agent-skill/HEAD/README.md",
+            "fetch_id": "F044",
+            "status": 200,
+            "ok": true,
+            "bytes": 10346
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/PSPDFKit-labs/nutrient-agent-skill/HEAD/SKILL.md",
+            "fetch_id": "F045",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/PSPDFKit-labs/nutrient-agent-skill/HEAD/package.json",
+            "fetch_id": "F046",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/PSPDFKit-labs/nutrient-agent-skill/HEAD/pyproject.toml",
+            "fetch_id": "F047",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/PSPDFKit-labs/nutrient-agent-skill/HEAD/LICENSE",
+            "fetch_id": "F048",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          }
+        ],
+        "files_read_ok": 1
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R004"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds STRUCTURED_OUTPUT",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL",
+          "DKSC-0929201853-005-document-to-json-pdf-invoice-sta (Document to JSON – PDF Invoice/Statement/Contract Parser) adds STRUCTURED_OUTPUT"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE",
+          "RESEARCH"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-003-kordoc",
+      "NAME": "kordoc",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "chrisryugj",
+      "SOURCE_URL": "https://www.npmjs.com/package/kordoc",
+      "REPOSITORY_URL": "https://github.com/chrisryugj/kordoc",
+      "DESCRIPTION": "Parse Korean documents (HWP3-5, HWPX, HWPML, PDF, XLS(X), DOCX) to Markdown — CLI + MCP server with lossless patch/roundtrip, form-filler, document diff, print & layout-preserving SVG renderer",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word"
+      ],
+      "OUTPUT": [
+        "MARKDOWN"
+      ],
+      "TOOLS": [
+        "kordoc",
+        "cfb",
+        "zod",
+        "jszip",
+        "commander",
+        "markdown-it",
+        "@xmldom/xmldom",
+        "@modelcontextprotocol/sdk"
+      ],
+      "API": "UNKNOWN",
+      "MCP": "YES",
+      "CODE_EXECUTION": "YES - installable package runs locally (not executed in this pilot)",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "CLAIMS_LOCAL - text states local/offline processing",
+      "AUTH_REQUIRED": "UNKNOWN",
+      "COST": "UNKNOWN",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-09-29T18:41:40.427Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "CONVERSION",
+        "FORMS",
+        "MCP",
+        "DEVELOPER_TOOL"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 14,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "code_tool"
+        ],
+        "SECONDARY": [
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S5_NPM_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "npm manifest",
+        "LAST_UPDATED": "npm search date",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F035",
+          "F049",
+          "F050"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/chrisryugj/kordoc/HEAD/README.md",
+            "fetch_id": "F049",
+            "status": 200,
+            "ok": true,
+            "bytes": 37588
+          },
+          {
+            "kind": "NPM_LATEST_MANIFEST",
+            "url": "https://registry.npmjs.org/kordoc/latest",
+            "fetch_id": "F050",
+            "status": 200,
+            "ok": true,
+            "bytes": 3654
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R043"
+        ],
+        "merged_from_sources": [
+          "S5_NPM_REGISTRY"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+SPREADSHEET",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-004-anthropics-skills-docx",
+      "NAME": "anthropics/skills/docx",
+      "TYPE": "AGENT_SKILL",
+      "PROVIDER": "anthropics",
+      "SOURCE_URL": "https://github.com/anthropics/skills/tree/main/skills/docx",
+      "REPOSITORY_URL": "https://github.com/anthropics/skills",
+      "DESCRIPTION": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx files, inserting or replacing images in documents, performing find-and-replace in Wor…",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출 -> -",
+      "TRIGGER": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from…",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word",
+        "IMAGE"
+      ],
+      "OUTPUT": [
+        "WORD"
+      ],
+      "TOOLS": [
+        "docx"
+      ],
+      "API": "UNKNOWN",
+      "MCP": "NOT_DETECTED",
+      "CODE_EXECUTION": "YES - SKILL.md instructs running code",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "UNKNOWN",
+      "AUTH_REQUIRED": "NO_EVIDENCE_OF_AUTH - SKILL.md mentions no key",
+      "COST": "UNKNOWN",
+      "LICENSE": "Proprietary. LICENSE.txt has complete terms",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "SPREADSHEET",
+        "CONVERSION",
+        "AGENT_SKILL"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 13,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "SECONDARY": [
+          "table"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S1_ANTHROPIC_OFFICIAL_SKILLS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "SKILL.md frontmatter",
+        "TYPE": "SKILL.md present",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "no mention found",
+        "LICENSE": "SKILL.md frontmatter",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "SKILL.md description (this is what makes Claude load the skill)",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F001",
+          "F003",
+          "F051"
+        ],
+        "files_read": [
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/docx/SKILL.md",
+            "fetch_id": "F003",
+            "status": 200,
+            "ok": true,
+            "bytes": 6911
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/docx/LICENSE.txt",
+            "fetch_id": "F051",
+            "status": 200,
+            "ok": true,
+            "bytes": 1467
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R001"
+        ],
+        "merged_from_sources": [
+          "S1_ANTHROPIC_OFFICIAL_SKILLS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds MCP+OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-005-document-to-json-pdf-invoice-sta (Document to JSON – PDF Invoice/Statement/Contract Parser) adds MCP+OCR+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds MCP+STRUCTURED_OUTPUT"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-005-document-to-json-pdf-invoice-sta",
+      "NAME": "Document to JSON – PDF Invoice/Statement/Contract Parser",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "fashionmascherine-svg",
+      "SOURCE_URL": "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.fashionmascherine-svg/document-to-json-mcp&version=latest",
+      "REPOSITORY_URL": "https://github.com/fashionmascherine-svg/document-to-json-mcp",
+      "DESCRIPTION": "Turn any PDF into structured JSON via AI + OCR: invoices, bank statements, contracts.",
+      "USE_CASE": "PDF/문서 -> 추출/OCR -> 구조화된 데이터/JSON",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF"
+      ],
+      "OUTPUT": [
+        "JSON"
+      ],
+      "TOOLS": [
+        "apify_client"
+      ],
+      "API": "YES - keys: APIFY_TOKEN; remote endpoint: https://mcp.apify.com/?actors=opportunity-biz/document-to-json-mcp; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "NO_LOCAL - hosted remote MCP (runs on provider side)",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - APIFY_TOKEN",
+      "COST": "PAID_OR_METERED_MENTIONED + FREE_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-06-24T17:38:23.829707Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "STRUCTURED_OUTPUT",
+        "INVOICE_RECEIPT",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 13,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "OUTPUT": [
+          "structured_data"
+        ],
+        "SECONDARY": [
+          "ocr",
+          "json"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S4_OFFICIAL_MCP_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "registry entry",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "MCP registry updatedAt",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F027",
+          "F052",
+          "F055",
+          "F056"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/fashionmascherine-svg/document-to-json-mcp/HEAD/README.md",
+            "fetch_id": "F052",
+            "status": 200,
+            "ok": true,
+            "bytes": 7482
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/fashionmascherine-svg/document-to-json-mcp/HEAD/SKILL.md",
+            "fetch_id": "F053",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/fashionmascherine-svg/document-to-json-mcp/HEAD/package.json",
+            "fetch_id": "F054",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/fashionmascherine-svg/document-to-json-mcp/HEAD/pyproject.toml",
+            "fetch_id": "F055",
+            "status": 200,
+            "ok": true,
+            "bytes": 596
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/fashionmascherine-svg/document-to-json-mcp/HEAD/LICENSE",
+            "fetch_id": "F056",
+            "status": 200,
+            "ok": true,
+            "bytes": 1072
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R023"
+        ],
+        "merged_from_sources": [
+          "S4_OFFICIAL_MCP_REGISTRY"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds SPREADSHEET+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET",
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL+TABLE_EXTRACTION"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-006-drolosoft-go-docs-mcp",
+      "NAME": "drolosoft/go-docs-mcp",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "drolosoft",
+      "SOURCE_URL": "https://github.com/drolosoft/go-docs-mcp",
+      "REPOSITORY_URL": "https://github.com/drolosoft/go-docs-mcp",
+      "DESCRIPTION": "Read, search, OCR and extract from PDF, TXT, Markdown, DOCX, CSV and image files, with caching and directory confinement.",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word",
+        "CSV",
+        "IMAGE"
+      ],
+      "OUTPUT": [
+        "STRUCTURED DATA",
+        "MARKDOWN"
+      ],
+      "TOOLS": "UNKNOWN",
+      "API": "UNKNOWN",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "CLAIMS_LOCAL - text states local/offline processing",
+      "AUTH_REQUIRED": "UNKNOWN",
+      "COST": "FREE_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "SPREADSHEET",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 13,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "SECONDARY": [
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "none detected",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F057",
+          "F061"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/drolosoft/go-docs-mcp/HEAD/README.md",
+            "fetch_id": "F057",
+            "status": 200,
+            "ok": true,
+            "bytes": 13196
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/drolosoft/go-docs-mcp/HEAD/SKILL.md",
+            "fetch_id": "F058",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/drolosoft/go-docs-mcp/HEAD/package.json",
+            "fetch_id": "F059",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/drolosoft/go-docs-mcp/HEAD/pyproject.toml",
+            "fetch_id": "F060",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/drolosoft/go-docs-mcp/HEAD/LICENSE",
+            "fetch_id": "F061",
+            "status": 200,
+            "ok": true,
+            "bytes": 1066
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R005"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL+TABLE_EXTRACTION",
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds TABLE_EXTRACTION"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-007-lfnovo-content-core",
+      "NAME": "lfnovo/content-core",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "lfnovo",
+      "SOURCE_URL": "https://github.com/lfnovo/content-core",
+      "REPOSITORY_URL": "https://github.com/lfnovo/content-core",
+      "DESCRIPTION": "Extract content from web pages, PDFs, Word documents, YouTube transcripts, audio and video with automatic engine selection and structured JSON output.",
+      "USE_CASE": "PDF/문서 -> 추출 -> 구조화된 데이터/JSON",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word",
+        "HTML/URL",
+        "AUDIO"
+      ],
+      "OUTPUT": [
+        "PLAIN TEXT"
+      ],
+      "TOOLS": [
+        "content_core",
+        "content-core"
+      ],
+      "API": "YES - keys: OPENAI_API_KEY, CRAWL4AI_API_TOKEN, FIRECRAWL_API_KEY, JINA_API_KEY",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - OPENAI_API_KEY, CRAWL4AI_API_TOKEN, FIRECRAWL_API_KEY, JINA_API_KEY",
+      "COST": "UNKNOWN",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "STRUCTURED_OUTPUT",
+        "AUTOMATION",
+        "WEB_EXTRACTION",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 13,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "OUTPUT": [
+          "structured_data"
+        ],
+        "CONTEXT": [
+          "automation"
+        ],
+        "SECONDARY": [
+          "json"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F062",
+          "F065",
+          "F066"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/lfnovo/content-core/HEAD/README.md",
+            "fetch_id": "F062",
+            "status": 200,
+            "ok": true,
+            "bytes": 9609
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/lfnovo/content-core/HEAD/SKILL.md",
+            "fetch_id": "F063",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/lfnovo/content-core/HEAD/package.json",
+            "fetch_id": "F064",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/lfnovo/content-core/HEAD/pyproject.toml",
+            "fetch_id": "F065",
+            "status": 200,
+            "ok": true,
+            "bytes": 2231
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/lfnovo/content-core/HEAD/LICENSE",
+            "fetch_id": "F066",
+            "status": 200,
+            "ok": true,
+            "bytes": 1066
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R006"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+SPREADSHEET",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET",
+          "DKSC-0929201853-006-drolosoft-go-docs-mcp (drolosoft/go-docs-mcp) adds OCR+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE",
+          "RESEARCH"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-008-opendatalab-mineru-ecosystem",
+      "NAME": "opendatalab/MinerU-Ecosystem",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "opendatalab",
+      "SOURCE_URL": "https://github.com/opendatalab/MinerU-Ecosystem/tree/main/mcp",
+      "REPOSITORY_URL": "https://github.com/opendatalab/MinerU-Ecosystem",
+      "DESCRIPTION": "Convert PDFs, Word and PowerPoint files, images and spreadsheets to Markdown via the MinerU document parsing API.",
+      "USE_CASE": "PDF/문서/Excel/스프레드시트 -> 추출 -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "PPTX",
+        "IMAGE"
+      ],
+      "OUTPUT": [
+        "MARKDOWN"
+      ],
+      "TOOLS": "UNKNOWN",
+      "API": "YES - keys: MINERU_API_TOKEN; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - MINERU_API_TOKEN",
+      "COST": "FREE_MENTIONED",
+      "LICENSE": "Apache-2.0",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "SPREADSHEET",
+        "CONVERSION",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 13,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "code_tool"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "none detected",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F068",
+          "F070"
+        ],
+        "files_read": [
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/opendatalab/MinerU-Ecosystem/main/mcp/SKILL.md",
+            "fetch_id": "F067",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/opendatalab/MinerU-Ecosystem/main/mcp/README.md",
+            "fetch_id": "F068",
+            "status": 200,
+            "ok": true,
+            "bytes": 5682
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/opendatalab/MinerU-Ecosystem/main/mcp/LICENSE.txt",
+            "fetch_id": "F069",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/opendatalab/MinerU-Ecosystem/main/LICENSE",
+            "fetch_id": "F070",
+            "status": 200,
+            "ok": true,
+            "bytes": 11357
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R007"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL+OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-005-document-to-json-pdf-invoice-sta (Document to JSON – PDF Invoice/Statement/Contract Parser) adds OCR+STRUCTURED_OUTPUT"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-009-linxule-mineru-mcp",
+      "NAME": "linxule/mineru-mcp",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "linxule",
+      "SOURCE_URL": "https://github.com/linxule/mineru-mcp",
+      "REPOSITORY_URL": "https://github.com/linxule/mineru-mcp",
+      "DESCRIPTION": "Parse PDFs, images, DOCX and PPTX via the MinerU document parsing API, with multilingual OCR, batch processing, page ranges and local file upload.",
+      "USE_CASE": "PDF/문서 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "DOCX/Word",
+        "PPTX",
+        "IMAGE"
+      ],
+      "OUTPUT": "UNKNOWN",
+      "TOOLS": [
+        "mineru-mcp",
+        "@modelcontextprotocol/sdk",
+        "axios",
+        "express",
+        "zod"
+      ],
+      "API": "YES - keys: MINERU_API_KEY; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - MINERU_API_KEY",
+      "COST": "UNKNOWN",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "AUTOMATION",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 12,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "automation",
+          "code_tool"
+        ],
+        "SECONDARY": [
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "not stated",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F071",
+          "F073",
+          "F074"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/linxule/mineru-mcp/HEAD/README.md",
+            "fetch_id": "F071",
+            "status": 200,
+            "ok": true,
+            "bytes": 11548
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/linxule/mineru-mcp/HEAD/SKILL.md",
+            "fetch_id": "F072",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/linxule/mineru-mcp/HEAD/package.json",
+            "fetch_id": "F073",
+            "status": 200,
+            "ok": true,
+            "bytes": 1542
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/linxule/mineru-mcp/HEAD/LICENSE",
+            "fetch_id": "F074",
+            "status": 200,
+            "ok": true,
+            "bytes": 1070
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R008"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds SPREADSHEET+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-010-pdf4me",
+      "NAME": "PDF4me",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "pdf4me",
+      "SOURCE_URL": "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.pdf4me/pdf4me-mcp&version=latest",
+      "REPOSITORY_URL": "https://github.com/pdf4me/pdf4me-mcp",
+      "DESCRIPTION": "PDF & document automation via the PDF4me API — convert, OCR, extract, edit, secure.",
+      "USE_CASE": "PDF/문서 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF"
+      ],
+      "OUTPUT": [
+        "PDF",
+        "WORD",
+        "EXCEL"
+      ],
+      "TOOLS": [
+        "pdf4me-mcp"
+      ],
+      "API": "YES - keys: PDF4ME_API_KEY; remote endpoint: https://mcp.pdf4me.com/mcp; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "YES - installable package runs locally (not executed in this pilot)",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - PDF4ME_API_KEY",
+      "COST": "PAID_OR_METERED_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-07-10T14:37:35.504699Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "CONVERSION",
+        "AUTOMATION",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 12,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "automation",
+          "code_tool"
+        ],
+        "SECONDARY": [
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S4_OFFICIAL_MCP_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "registry entry",
+        "LICENSE": "PyPI metadata",
+        "LAST_UPDATED": "MCP registry updatedAt",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F026",
+          "F075",
+          "F076"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/pdf4me/pdf4me-mcp/HEAD/README.md",
+            "fetch_id": "F075",
+            "status": 200,
+            "ok": true,
+            "bytes": 19391
+          },
+          {
+            "kind": "PYPI_JSON",
+            "url": "https://pypi.org/pypi/pdf4me-mcp/json",
+            "fetch_id": "F076",
+            "status": 200,
+            "ok": true,
+            "bytes": 33404
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R025"
+        ],
+        "merged_from_sources": [
+          "S4_OFFICIAL_MCP_REGISTRY"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds SPREADSHEET+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-011-bigapi-mcp",
+      "NAME": "@bigapi/mcp",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "BiGapi-2026",
+      "SOURCE_URL": "https://www.npmjs.com/package/@bigapi/mcp",
+      "REPOSITORY_URL": "https://github.com/BiGapi-2026/bigapi-mcp",
+      "DESCRIPTION": "MCP server for bigapi.dev - the output layer for AI agents: turn what an agent produced into a finished file, and read files back in. $0.01 per operation.",
+      "USE_CASE": "PDF/문서 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": "UNKNOWN",
+      "OUTPUT": [
+        "MARKDOWN",
+        "PDF",
+        "WORD"
+      ],
+      "TOOLS": [
+        "zod",
+        "@modelcontextprotocol/sdk"
+      ],
+      "API": "YES - keys: BIGAPI_KEY; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "YES - installable package runs locally (not executed in this pilot)",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - BIGAPI_KEY",
+      "COST": "PAID_OR_METERED_MENTIONED + FREE_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-09-19T09:47:27.761Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 11,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "SECONDARY": [
+          "table",
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S5_NPM_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "not stated",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "npm manifest",
+        "LAST_UPDATED": "npm search date",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F035",
+          "F077",
+          "F078"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/BiGapi-2026/bigapi-mcp/HEAD/README.md",
+            "fetch_id": "F077",
+            "status": 200,
+            "ok": true,
+            "bytes": 5401
+          },
+          {
+            "kind": "NPM_LATEST_MANIFEST",
+            "url": "https://registry.npmjs.org/@bigapi%2Fmcp/latest",
+            "fetch_id": "F078",
+            "status": 200,
+            "ok": true,
+            "bytes": 1904
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R044"
+        ],
+        "merged_from_sources": [
+          "S5_NPM_REGISTRY"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "문서 처리 파이프라인의 보조 단계 (역할 추가 확인 필요)",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL",
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL"
+        ],
+        "POSSIBLE_VALUE": [
+          "UNKNOWN"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-012-pspdfkit-nutrient-dws-mcp-server",
+      "NAME": "PSPDFKit/nutrient-dws-mcp-server",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "PSPDFKit",
+      "SOURCE_URL": "https://github.com/PSPDFKit/nutrient-dws-mcp-server",
+      "REPOSITORY_URL": "https://github.com/PSPDFKit/nutrient-dws-mcp-server",
+      "DESCRIPTION": "Convert, merge, redact, sign, OCR, watermark and extract data from PDFs and Office documents via the Nutrient DWS Processor API.",
+      "USE_CASE": "PDF/문서 -> 추출/OCR -> -",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF"
+      ],
+      "OUTPUT": [
+        "MARKDOWN",
+        "JSON"
+      ],
+      "TOOLS": [
+        "@nutrient-sdk/dws-mcp-server",
+        "zod",
+        "open",
+        "axios",
+        "winston",
+        "form-data",
+        "@modelcontextprotocol/sdk"
+      ],
+      "API": "YES - keys: NUTRIENT_DWS_API_KEY, NUTRIENT_DWS_EXTRACTION_API_KEY; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "YES - installable package runs locally (not executed in this pilot)",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - NUTRIENT_DWS_API_KEY, NUTRIENT_DWS_EXTRACTION_API_KEY",
+      "COST": "PAID_OR_METERED_MENTIONED + FREE_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "2026-08-28T00:12:12.095928Z",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "CONVERSION",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 11,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "CONTEXT": [
+          "code_tool"
+        ],
+        "SECONDARY": [
+          "ocr"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS",
+        "S4_OFFICIAL_MCP_REGISTRY"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "registry entry",
+        "LICENSE": "npm manifest",
+        "LAST_UPDATED": "MCP registry updatedAt",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F026",
+          "F079",
+          "F080"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/PSPDFKit/nutrient-dws-mcp-server/HEAD/README.md",
+            "fetch_id": "F079",
+            "status": 200,
+            "ok": true,
+            "bytes": 29519
+          },
+          {
+            "kind": "NPM_LATEST_MANIFEST",
+            "url": "https://registry.npmjs.org/@nutrient-sdk%2Fdws-mcp-server/latest",
+            "fetch_id": "F080",
+            "status": 200,
+            "ok": true,
+            "bytes": 3291
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R010",
+          "R038"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS",
+          "S4_OFFICIAL_MCP_REGISTRY"
+        ],
+        "note": "1 duplicate listing(s) merged by shared repository/package key"
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds SPREADSHEET+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "CONTENT_PRODUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-013-flexorch-flexorch-mcp",
+      "NAME": "flexorch/flexorch-mcp",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "flexorch",
+      "SOURCE_URL": "https://github.com/flexorch/flexorch-mcp",
+      "REPOSITORY_URL": "https://github.com/flexorch/flexorch-mcp",
+      "DESCRIPTION": "Turn business documents (PDFs, invoices, contracts, payroll) into structured datasets with classification, field extraction, PII masking and quality scoring.",
+      "USE_CASE": "PDF/문서 -> 추출 -> 구조화된 데이터",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF"
+      ],
+      "OUTPUT": [
+        "STRUCTURED DATA",
+        "JSON"
+      ],
+      "TOOLS": [
+        "flexorch-mcp"
+      ],
+      "API": "YES - keys: FLEXORCH_API_KEY; README/description mentions an API",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "YES - remote service/API",
+      "AUTH_REQUIRED": "YES - FLEXORCH_API_KEY",
+      "COST": "PAID_OR_METERED_MENTIONED",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "STRUCTURED_OUTPUT",
+        "INVOICE_RECEIPT",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 11,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "OUTPUT": [
+          "structured_data"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F081",
+          "F084",
+          "F085"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/flexorch/flexorch-mcp/HEAD/README.md",
+            "fetch_id": "F081",
+            "status": 200,
+            "ok": true,
+            "bytes": 5323
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/flexorch/flexorch-mcp/HEAD/SKILL.md",
+            "fetch_id": "F082",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/flexorch/flexorch-mcp/HEAD/package.json",
+            "fetch_id": "F083",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PYPROJECT",
+            "url": "https://raw.githubusercontent.com/flexorch/flexorch-mcp/HEAD/pyproject.toml",
+            "fetch_id": "F084",
+            "status": 200,
+            "ok": true,
+            "bytes": 1519
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/flexorch/flexorch-mcp/HEAD/LICENSE",
+            "fetch_id": "F085",
+            "status": 200,
+            "ok": true,
+            "bytes": 1065
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R009"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+SPREADSHEET",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL+SPREADSHEET",
+          "DKSC-0929201853-006-drolosoft-go-docs-mcp (drolosoft/go-docs-mcp) adds OCR+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-014-zacccck-claude-mcp-read-email-at",
+      "NAME": "Zacccck/Claude-MCP-Read-Email-Attachments",
+      "TYPE": "MCP_SERVER",
+      "PROVIDER": "Zacccck",
+      "SOURCE_URL": "https://github.com/Zacccck/Claude-MCP-Read-Email-Attachments",
+      "REPOSITORY_URL": "https://github.com/Zacccck/Claude-MCP-Read-Email-Attachments",
+      "DESCRIPTION": "Read Outlook email attachments via Microsoft Graph, parsing PDF, Word (including embedded images), Excel and text files into structured content.",
+      "USE_CASE": "PDF/Excel/스프레드시트 -> 추출 -> 구조화된 데이터",
+      "TRIGGER": "Tool call from an MCP client (tool list not introspected in this pilot)",
+      "INPUT": [
+        "PDF",
+        "XLSX/Excel",
+        "IMAGE",
+        "EMAIL"
+      ],
+      "OUTPUT": [
+        "PLAIN TEXT",
+        "TEXT",
+        "CSV"
+      ],
+      "TOOLS": [
+        "@azure/msal-node",
+        "@kenjiuno/msgreader",
+        "@modelcontextprotocol/sdk",
+        "7zip-bin",
+        "adm-zip",
+        "cfb",
+        "dotenv",
+        "exceljs",
+        "mammoth",
+        "node-7z",
+        "node-unrar-js",
+        "pdf-parse"
+      ],
+      "API": "UNKNOWN",
+      "MCP": "YES",
+      "CODE_EXECUTION": "UNKNOWN",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "UNKNOWN",
+      "AUTH_REQUIRED": "UNKNOWN",
+      "COST": "UNKNOWN",
+      "LICENSE": "MIT",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "SPREADSHEET",
+        "STRUCTURED_OUTPUT",
+        "MCP"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 11,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "spreadsheet"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "OUTPUT": [
+          "structured_data"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "source listing/registry description",
+        "TYPE": "MCP registry entry or README states MCP server",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "'to/into/as/returns <format>' phrases in description/README",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "text mention",
+        "LICENSE": "LICENSE file text",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "by type",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F025",
+          "F086",
+          "F088",
+          "F089"
+        ],
+        "files_read": [
+          {
+            "kind": "README",
+            "url": "https://raw.githubusercontent.com/Zacccck/Claude-MCP-Read-Email-Attachments/HEAD/README.md",
+            "fetch_id": "F086",
+            "status": 200,
+            "ok": true,
+            "bytes": 17561
+          },
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/Zacccck/Claude-MCP-Read-Email-Attachments/HEAD/SKILL.md",
+            "fetch_id": "F087",
+            "status": 404,
+            "ok": false,
+            "bytes": 14
+          },
+          {
+            "kind": "MANIFEST_PACKAGE_JSON",
+            "url": "https://raw.githubusercontent.com/Zacccck/Claude-MCP-Read-Email-Attachments/HEAD/package.json",
+            "fetch_id": "F088",
+            "status": 200,
+            "ok": true,
+            "bytes": 1937
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/Zacccck/Claude-MCP-Read-Email-Attachments/HEAD/LICENSE",
+            "fetch_id": "F089",
+            "status": 200,
+            "ok": true,
+            "bytes": 1064
+          }
+        ],
+        "files_read_ok": 3
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R011"
+        ],
+        "merged_from_sources": [
+          "S3_GITHUB_CURATED_LISTS"
+        ]
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-015-anthropics-skills-pdf (anthropics/skills/pdf) adds AGENT_SKILL+OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds OCR+TABLE_EXTRACTION",
+          "DKSC-0929201853-004-anthropics-skills-docx (anthropics/skills/docx) adds AGENT_SKILL"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    },
+    {
+      "CAPABILITY_ID": "DKSC-0929201853-015-anthropics-skills-pdf",
+      "NAME": "anthropics/skills/pdf",
+      "TYPE": "AGENT_SKILL",
+      "PROVIDER": "anthropics",
+      "SOURCE_URL": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+      "REPOSITORY_URL": "https://github.com/anthropics/skills",
+      "DESCRIPTION": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill.",
+      "USE_CASE": "PDF/문서 -> 추출 -> -",
+      "TRIGGER": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file o…",
+      "INPUT": [
+        "PDF",
+        "IMAGE",
+        "SCANNED"
+      ],
+      "OUTPUT": "UNKNOWN",
+      "TOOLS": [
+        "pypdf",
+        "pdfplumber",
+        "pandas",
+        "reportlab",
+        "pytesseract",
+        "pdf2image"
+      ],
+      "API": "UNKNOWN",
+      "MCP": "NOT_DETECTED",
+      "CODE_EXECUTION": "YES - SKILL.md instructs running code",
+      "FILE_ACCESS": "YES - reads user files (per text)",
+      "NETWORK_ACCESS": "UNKNOWN",
+      "AUTH_REQUIRED": "NO_EVIDENCE_OF_AUTH - SKILL.md mentions no key",
+      "COST": "UNKNOWN",
+      "LICENSE": "Proprietary. LICENSE.txt has complete terms",
+      "LAST_UPDATED": "UNKNOWN",
+      "EVIDENCE_LEVEL": "E3_PRIMARY_DOC_AND_MANIFEST_READ",
+      "CATEGORIES": [
+        "DOCUMENT_PROCESSING",
+        "DATA_EXTRACTION",
+        "OCR",
+        "TABLE_EXTRACTION",
+        "FORMS",
+        "AGENT_SKILL"
+      ],
+      "NEW_CATEGORIES_CREATED": [],
+      "RELEVANCE_SCORE": 10,
+      "MATCHED_CONCEPTS": {
+        "OBJECT": [
+          "pdf",
+          "document"
+        ],
+        "ACTION": [
+          "extract"
+        ],
+        "SECONDARY": [
+          "table"
+        ]
+      },
+      "FOUND_IN_SOURCES": [
+        "S1_ANTHROPIC_OFFICIAL_SKILLS",
+        "S3_GITHUB_CURATED_LISTS"
+      ],
+      "FIELD_BASIS": {
+        "DESCRIPTION": "SKILL.md frontmatter",
+        "TYPE": "SKILL.md present",
+        "PROVIDER": "GitHub owner",
+        "INPUT": "formats mentioned in description/SKILL.md (direction not verified)",
+        "OUTPUT": "not stated",
+        "TOOLS": "imports/install commands in SKILL.md/README code, manifest dependencies",
+        "MCP": "no mention found",
+        "LICENSE": "SKILL.md frontmatter",
+        "LAST_UPDATED": "GitHub commit API not reachable in this environment",
+        "TRIGGER": "SKILL.md description (this is what makes Claude load the skill)",
+        "USE_CASE": "derived from question concepts matched in this candidate's text"
+      },
+      "EVIDENCE": {
+        "fetch_ids": [
+          "F001",
+          "F005",
+          "F023",
+          "F090"
+        ],
+        "files_read": [
+          {
+            "kind": "SKILL_MD",
+            "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/SKILL.md",
+            "fetch_id": "F005",
+            "status": 200,
+            "ok": true,
+            "bytes": 8072
+          },
+          {
+            "kind": "LICENSE",
+            "url": "https://raw.githubusercontent.com/anthropics/skills/main/skills/pdf/LICENSE.txt",
+            "fetch_id": "F090",
+            "status": 200,
+            "ok": true,
+            "bytes": 1467
+          }
+        ],
+        "files_read_ok": 2
+      },
+      "DEDUP_STATUS": "UNIQUE",
+      "DEDUP_DETAIL": {
+        "merged_raw_candidates": [
+          "R002",
+          "R012"
+        ],
+        "merged_from_sources": [
+          "S1_ANTHROPIC_OFFICIAL_SKILLS",
+          "S3_GITHUB_CURATED_LISTS"
+        ],
+        "note": "1 duplicate listing(s) merged by shared repository/package key"
+      },
+      "DREAM_FIT": {
+        "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+        "DREAM_FACTORY_TARGET": "DATA FACTORY - 공급업체 카탈로그 → 상품 데이터(DB) 라인",
+        "POSSIBLE_COMBINATION": [
+          "DKSC-0929201853-001-koraynar-doc-extract-mcp (koraynar/doc-extract-mcp) adds MCP+SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-014-zacccck-claude-mcp-read-email-at (Zacccck/Claude-MCP-Read-Email-Attachments) adds MCP+SPREADSHEET+STRUCTURED_OUTPUT",
+          "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski (PSPDFKit-labs/nutrient-agent-skill) adds MCP+SPREADSHEET"
+        ],
+        "POSSIBLE_VALUE": [
+          "DATA_ASSET",
+          "INTERNAL_AUTOMATION",
+          "COST_REDUCTION",
+          "COMMERCE"
+        ],
+        "REVENUE_EVIDENCE": "NOT_VERIFIED - no revenue was measured; values above are possibilities only"
+      }
+    }
+  ]
+}

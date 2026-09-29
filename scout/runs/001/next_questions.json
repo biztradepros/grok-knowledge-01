@@ -1,0 +1,575 @@
+{
+  "lot": "DKSC-CLAUDE-CODE-SCOUT-001",
+  "run_tag": "DKSC-0929201853",
+  "authority": "NONE",
+  "from_question": "PDF, 문서, Excel 또는 카탈로그에서 구조화된 데이터를 자동 추출하는 데 사용할 수 있는 공개 Skill 또는 코드 도구를 찾아줘.",
+  "count": 8,
+  "next_questions": [
+    {
+      "QUESTION": "PSPDFKit-labs/nutrient-agent-skill의 OCR과 anthropics/skills/pdf의 PDF 표 추출을 결합하면 스캔된 공급업체 카탈로그까지 구조화된 데이터(JSON)로 만들 수 있는가?",
+      "WHY": "이번 실행에서 OCR 분류 7개, 추출 분류 14개가 확인됐지만 둘을 이어 붙인 검증 사례는 수집되지 않았다 (NOT_MEASURED).",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski",
+        "DKSC-0929201853-015-anthropics-skills-pdf"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "pdf",
+          "catalog",
+          "table",
+          "extract",
+          "extraction",
+          "structured",
+          "data",
+          "pdf parsing",
+          "pdf text extraction",
+          "product catalog",
+          "product data extraction"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(pdf OR catalog OR table OR scanned) (extract OR extraction OR parse) \"structured data\" in:name,description,readme",
+          "topic:pdf-parsing",
+          "topic:pdf-text-extraction",
+          "topic:product-catalog"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server pdf catalog extract structured data",
+          "pdf",
+          "catalog",
+          "table",
+          "scan",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md pdf catalog extract structured data",
+          "claude skill pdf catalog table"
+        ],
+        "WEB_KEYWORDS": [
+          "pdf catalog extract structured data open source",
+          "claude skill pdf extract",
+          "mcp server pdf extract structured data",
+          "best pdf extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [
+          "pypdf",
+          "pdfplumber",
+          "pdf2image"
+        ],
+        "_concepts": [
+          "pdf",
+          "catalog",
+          "table",
+          "scanned",
+          "extract",
+          "ocr",
+          "structured_data",
+          "json",
+          "supplier"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "pdf",
+        "catalog",
+        "table",
+        "extract",
+        "extraction",
+        "structured",
+        "pypdf",
+        "pdfplumber",
+        "pdf2image"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "PSPDFKit-labs/nutrient-agent-skill의 PDF 표 추출 결과를 koraynar/doc-extract-mcp(으)로 넘겨 Excel 또는 데이터베이스 적재까지 자동화할 수 있는가?",
+      "WHY": "추출 후보 14개와 스프레드시트 후보 6개가 따로 존재한다. 출력 형식(JSON/CSV)이 서로 맞는지는 확인되지 않았다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski",
+        "DKSC-0929201853-001-koraynar-doc-extract-mcp"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "pdf",
+          "excel",
+          "spreadsheet",
+          "extract",
+          "extraction",
+          "database",
+          "pdf parsing",
+          "pdf text extraction",
+          "xlsx",
+          "csv"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(pdf OR excel OR spreadsheet OR table) (extract OR extraction OR parse) \"database\" in:name,description,readme",
+          "topic:pdf-parsing",
+          "topic:pdf-text-extraction",
+          "topic:xlsx"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server pdf excel extract database",
+          "pdf",
+          "excel",
+          "table",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md pdf excel extract database",
+          "claude skill pdf excel spreadsheet"
+        ],
+        "WEB_KEYWORDS": [
+          "pdf excel extract database open source",
+          "claude skill pdf extract",
+          "mcp server pdf extract database",
+          "best pdf extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [],
+        "_concepts": [
+          "pdf",
+          "spreadsheet",
+          "table",
+          "extract",
+          "database",
+          "automation"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "pdf",
+        "excel",
+        "spreadsheet",
+        "extract",
+        "extraction",
+        "database"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "카탈로그(상품 목록) PDF에서 상품명·가격·규격 필드를 스키마 기반으로 추출하는 공개 Capability가 존재하는가?",
+      "WHY": "질문의 핵심 대상 '카탈로그'를 설명에서 직접 언급한 후보가 하나도 없다 (공백 영역).",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "pdf",
+          "catalog",
+          "product",
+          "extract",
+          "extraction",
+          "structured",
+          "data",
+          "pdf parsing",
+          "pdf text extraction",
+          "product catalog",
+          "product data extraction"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(pdf OR catalog OR product) (extract OR extraction OR parse) \"structured data\" in:name,description,readme",
+          "topic:pdf-parsing",
+          "topic:pdf-text-extraction",
+          "topic:product-catalog"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server pdf catalog extract structured data",
+          "pdf",
+          "catalog",
+          "product",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md pdf catalog extract structured data",
+          "claude skill pdf catalog product"
+        ],
+        "WEB_KEYWORDS": [
+          "pdf catalog extract structured data open source",
+          "claude skill pdf extract",
+          "mcp server pdf extract structured data",
+          "best pdf extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [],
+        "_concepts": [
+          "pdf",
+          "catalog",
+          "product",
+          "extract",
+          "structured_data",
+          "attributes",
+          "open_source"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "pdf",
+        "catalog",
+        "product",
+        "extract",
+        "extraction",
+        "structured"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "상품 이미지와 텍스트를 동시에 추출할 수 있는 Capability가 존재하는가?",
+      "WHY": "이미지를 언급한 후보는 7개다. 카탈로그 데이터화에는 상품 사진과 설명을 짝지어야 하지만 이번 후보들은 대부분 텍스트/표 중심이다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski",
+        "DKSC-0929201853-004-anthropics-skills-docx",
+        "DKSC-0929201853-006-drolosoft-go-docs-mcp"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "product",
+          "image",
+          "extract",
+          "extraction",
+          "product information",
+          "product attributes",
+          "image text extraction",
+          "multimodal extraction"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(product OR image) (extract OR extraction OR parse) in:name,description,readme",
+          "topic:product-information",
+          "topic:product-attributes",
+          "topic:image-text-extraction"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server product image extract",
+          "product",
+          "image",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md product image extract",
+          "claude skill product image extract"
+        ],
+        "WEB_KEYWORDS": [
+          "product image extract open source",
+          "claude skill product extract",
+          "mcp server product extract",
+          "best product extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [
+          "docx"
+        ],
+        "_concepts": [
+          "product",
+          "image",
+          "extract"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "product",
+        "image",
+        "extract",
+        "extraction",
+        "product information",
+        "product attributes",
+        "docx"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "JSON 스키마 기반 추출을 지원하는 koraynar/doc-extract-mcp, Document to JSON – PDF Invoice/Statement/Contract Parser을(를) 공급업체 카탈로그 상품 스키마에 적용하면 데이터베이스 레코드를 바로 만들 수 있는가?",
+      "WHY": "5개 후보가 JSON/스키마 출력을 언급한다. 스키마를 우리 쪽 필드로 바꿔 끼울 수 있는지는 확인되지 않았다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-001-koraynar-doc-extract-mcp",
+        "DKSC-0929201853-005-document-to-json-pdf-invoice-sta",
+        "DKSC-0929201853-007-lfnovo-content-core"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "catalog",
+          "product",
+          "extract",
+          "extraction",
+          "structured",
+          "data",
+          "product catalog",
+          "product data extraction",
+          "product feed",
+          "product information"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(catalog OR product) (extract OR extraction OR parse) \"structured data\" in:name,description,readme",
+          "topic:product-catalog",
+          "topic:product-data-extraction",
+          "topic:product-feed"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server catalog product extract structured data",
+          "catalog",
+          "product",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md catalog product extract structured data",
+          "claude skill catalog product extract"
+        ],
+        "WEB_KEYWORDS": [
+          "catalog product extract structured data open source",
+          "claude skill catalog extract",
+          "mcp server catalog extract structured data",
+          "best catalog extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [],
+        "_concepts": [
+          "catalog",
+          "product",
+          "extract",
+          "structured_data",
+          "json",
+          "database",
+          "code_tool",
+          "supplier"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "catalog",
+        "product",
+        "extract",
+        "extraction",
+        "structured",
+        "data"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "API 키 없이 로컬에서 실행 가능한 후보(6개)만으로 PDF 문서 → 구조화 데이터 추출 파이프라인을 구성할 수 있는가?",
+      "WHY": "전체 15개 중 9개는 인증 또는 외부 서비스가 필요하거나 표시돼 있다. 비용·보안 면에서 로컬 조합을 먼저 확인할 가치가 있다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-001-koraynar-doc-extract-mcp",
+        "DKSC-0929201853-003-kordoc",
+        "DKSC-0929201853-004-anthropics-skills-docx",
+        "DKSC-0929201853-006-drolosoft-go-docs-mcp"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "pdf",
+          "document",
+          "extract",
+          "extraction",
+          "structured",
+          "data",
+          "api",
+          "pdf parsing",
+          "pdf text extraction",
+          "document parsing",
+          "intelligent document processing"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(pdf OR document) (extract OR extraction OR parse) \"structured data\" api in:name,description,readme",
+          "topic:pdf-parsing",
+          "topic:pdf-text-extraction",
+          "topic:document-parsing"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server pdf document extract structured data",
+          "pdf",
+          "document",
+          "extract",
+          "ocr",
+          "api"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md pdf document extract structured data",
+          "claude skill pdf document extract"
+        ],
+        "WEB_KEYWORDS": [
+          "pdf document extract structured data open source",
+          "claude skill pdf extract",
+          "mcp server pdf extract structured data",
+          "best pdf extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [
+          "docx"
+        ],
+        "_concepts": [
+          "pdf",
+          "document",
+          "extract",
+          "structured_data",
+          "automation",
+          "local"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "pdf",
+        "document",
+        "extract",
+        "extraction",
+        "structured",
+        "data",
+        "docx"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "Agent Skill(anthropics/skills/docx)의 절차와 MCP 서버(koraynar/doc-extract-mcp)의 도구 호출을 결합해 문서 추출 작업을 한 번의 요청으로 자동화할 수 있는가?",
+      "WHY": "Skill은 절차와 코드를, MCP는 외부 도구 호출을 제공한다. 두 형태가 이번 실행에서 모두 발견됐다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-004-anthropics-skills-docx",
+        "DKSC-0929201853-001-koraynar-doc-extract-mcp"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "document",
+          "extract",
+          "extraction",
+          "document parsing",
+          "intelligent document processing",
+          "document ai",
+          "data extraction"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(document) (extract OR extraction OR parse) in:name,description,readme",
+          "topic:document-parsing",
+          "topic:intelligent-document-processing",
+          "topic:document-ai"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server document extract",
+          "document",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md document extract",
+          "claude skill document extract extraction"
+        ],
+        "WEB_KEYWORDS": [
+          "document extract open source",
+          "claude skill document extract",
+          "mcp server document extract",
+          "best document extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [
+          "docx"
+        ],
+        "_concepts": [
+          "document",
+          "extract",
+          "automation",
+          "agent_skill",
+          "mcp"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "document",
+        "extract",
+        "extraction",
+        "document parsing",
+        "intelligent document processing",
+        "document ai",
+        "docx"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    },
+    {
+      "QUESTION": "PSPDFKit-labs/nutrient-agent-skill과(와) anthropics/skills/pdf의 PDF 표 추출 정확도를 비교할 공개 벤치마크나 테스트 데이터셋이 있는가?",
+      "WHY": "같은 역할의 후보가 여러 개라서 고르려면 정확도 근거가 필요하다. 이번 파일럿은 정확도를 측정하지 않았다.",
+      "SOURCE_CAPABILITIES": [
+        "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski",
+        "DKSC-0929201853-015-anthropics-skills-pdf"
+      ],
+      "AI_KEYWORDS": {
+        "CORE_KEYWORDS": [
+          "pdf",
+          "table",
+          "extract",
+          "extraction",
+          "pdf parsing",
+          "pdf text extraction",
+          "table extraction",
+          "table detection"
+        ],
+        "GITHUB_KEYWORDS": [
+          "(pdf OR table) (extract OR extraction OR parse) in:name,description,readme",
+          "topic:pdf-parsing",
+          "topic:pdf-text-extraction",
+          "topic:table-extraction"
+        ],
+        "MCP_KEYWORDS": [
+          "mcp server pdf table extract",
+          "pdf",
+          "table",
+          "extract",
+          "ocr"
+        ],
+        "SKILL_KEYWORDS": [
+          "SKILL.md pdf table extract",
+          "claude skill pdf table extract"
+        ],
+        "WEB_KEYWORDS": [
+          "pdf table extract open source",
+          "claude skill pdf extract",
+          "mcp server pdf extract",
+          "best pdf extract tool"
+        ],
+        "DISCOVERED_TERMS_FROM_SOURCES": [
+          "pypdf",
+          "pdfplumber",
+          "pdf2image"
+        ],
+        "_concepts": [
+          "pdf",
+          "table",
+          "extract",
+          "open_source",
+          "benchmark"
+        ]
+      },
+      "NEXT_SEARCH_TERMS": [
+        "pdf",
+        "table",
+        "extract",
+        "extraction",
+        "pdf parsing",
+        "pdf text extraction",
+        "pypdf",
+        "pdfplumber",
+        "pdf2image"
+      ],
+      "NEXT_INPUT_CANDIDATE": true
+    }
+  ],
+  "outbox": [
+    {
+      "OUTBOX_CANDIDATE_ID": "OBX-DKSC-0929201853-01",
+      "SOURCE": "https://github.com/PSPDFKit-labs/nutrient-agent-skill",
+      "CAPABILITY": "DKSC-0929201853-002-pspdfkit-labs-nutrient-agent-ski | PSPDFKit-labs/nutrient-agent-skill | MCP_SERVER",
+      "WHY_INTERESTING": "relevance 15, E2_PRIMARY_DOC_READ, categories DOCUMENT_PROCESSING/DATA_EXTRACTION/OCR/TABLE_EXTRACTION/SPREADSHEET, referenced by 5 next question(s), found in 1 source(s)",
+      "DREAM_USE": "스캔본 포함 PDF·문서·Excel/스프레드시트·카탈로그에서 텍스트·표를 읽어 구조화하는 추출 단계",
+      "NEXT_RESEARCH_QUESTION": "PSPDFKit-labs/nutrient-agent-skill의 OCR과 anthropics/skills/pdf의 PDF 표 추출을 결합하면 스캔된 공급업체 카탈로그까지 구조화된 데이터(JSON)로 만들 수 있는가?",
+      "STATUS": "DISCOVERED",
+      "AUTHORITY": "NONE",
+      "RANK_SCORE": 30
+    },
+    {
+      "OUTBOX_CANDIDATE_ID": "OBX-DKSC-0929201853-02",
+      "SOURCE": "https://github.com/koraynar/doc-extract-mcp",
+      "CAPABILITY": "DKSC-0929201853-001-koraynar-doc-extract-mcp | koraynar/doc-extract-mcp | MCP_SERVER",
+      "WHY_INTERESTING": "relevance 15, E3_PRIMARY_DOC_AND_MANIFEST_READ, categories DOCUMENT_PROCESSING/DATA_EXTRACTION/SPREADSHEET/STRUCTURED_OUTPUT/MCP, referenced by 4 next question(s), found in 2 source(s)",
+      "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+      "NEXT_RESEARCH_QUESTION": "PSPDFKit-labs/nutrient-agent-skill의 PDF 표 추출 결과를 koraynar/doc-extract-mcp(으)로 넘겨 Excel 또는 데이터베이스 적재까지 자동화할 수 있는가?",
+      "STATUS": "DISCOVERED",
+      "AUTHORITY": "NONE",
+      "RANK_SCORE": 29
+    },
+    {
+      "OUTBOX_CANDIDATE_ID": "OBX-DKSC-0929201853-03",
+      "SOURCE": "https://github.com/anthropics/skills/tree/main/skills/docx",
+      "CAPABILITY": "DKSC-0929201853-004-anthropics-skills-docx | anthropics/skills/docx | AGENT_SKILL",
+      "WHY_INTERESTING": "relevance 13, E3_PRIMARY_DOC_AND_MANIFEST_READ, categories DOCUMENT_PROCESSING/DATA_EXTRACTION/SPREADSHEET/CONVERSION/AGENT_SKILL, referenced by 3 next question(s), found in 1 source(s)",
+      "DREAM_USE": "PDF·문서·Excel/스프레드시트·카탈로그에서 필드·표를 뽑아 JSON/행 데이터로 만드는 추출 단계",
+      "NEXT_RESEARCH_QUESTION": "상품 이미지와 텍스트를 동시에 추출할 수 있는 Capability가 존재하는가?",
+      "STATUS": "DISCOVERED",
+      "AUTHORITY": "NONE",
+      "RANK_SCORE": 25
+    }
+  ]
+}
