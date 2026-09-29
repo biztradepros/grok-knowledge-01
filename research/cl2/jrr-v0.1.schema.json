@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jrr-v0.1.schema.json",
+  "title": "Justified Result Record v0.1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "result_id",
+    "produced_by",
+    "consumes",
+    "evidence_refs",
+    "rule_version",
+    "result_hash",
+    "created_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "task_id": { "type": "string" },
+    "result_id": { "type": "string", "description": "Unique per record; never reused." },
+    "produced_by": { "type": "string", "description": "Self-declared in v0.1; not authenticated." },
+    "consumes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hash" },
+      "description": "result_hash of every result this result was built from."
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hash" },
+      "description": "sha256 of logs, test output or other evidence files."
+    },
+    "rule_version": { "type": "string" },
+    "result_hash": { "$ref": "#/$defs/hash", "description": "sha256 of the result content bytes." },
+    "created_at": { "type": "string", "format": "date-time" },
+    "rejects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hash" },
+      "description": "Optional. Only on verdict records: result_hash values this record declares invalid. A verdict names its target here, not in consumes."
+    }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}
