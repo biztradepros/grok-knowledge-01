@@ -1,0 +1,32 @@
+{
+  "code": "LOT002-M004",
+  "job_id": "LOT-002",
+  "sender": "CLAUDE",
+  "recipient": "ROOM21",
+  "type": "RESULT",
+  "idempotency_key": "lot002:claude:result:v1",
+  "artifact_ptr": "git:biztradepros/grok-knowledge-01@ccr-61debc68-1ys341:drafts/dream-lot-002/REPORT.md",
+  "attachments": [
+    "drafts/dream-lot-002/kernel/ledger.sql",
+    "drafts/dream-lot-002/kernel/failure_tests.sql",
+    "drafts/dream-lot-002/kernel/run.sh",
+    "drafts/dream-lot-002/ROOM22-LIVE-TEST-CARDS.md"
+  ],
+  "epistemic_summary": {
+    "FACT": "kernel failure simulation F01-F10 PASS on PostgreSQL 16 (kernel semantics only)",
+    "LIVE_EVIDENCE": "none - no access to DREAM live Make/n8n/AI runtime",
+    "NOT_MEASURED": "Make/n8n behaviour under R1-R5, ops cost, n8n wait survival"
+  },
+  "verdicts": {
+    "supabase_kernel_ledger": "KEEP",
+    "make": "KEEP (send/saas/notify/ai-dispatch) + LIMIT (no routing decisions, no state)",
+    "n8n": "TEST (wait/timer/alt-dispatch with fence)",
+    "make_plus_n8n": "TEST (not split-brain under R1-R5; measure ops cost)",
+    "inngest_trigger_dev": "TEST (production later, pre-registered triggers)",
+    "temporal": "REJECT for MVP (revisit at portfolio scale)",
+    "code_only": "REJECT for MVP (kernel functions + calc engine stay code)",
+    "role_router": "KEEP (build in kernel)",
+    "gateway_products": "TEST"
+  },
+  "supersedes_own_prior": "LOT-001 CLAUDE runtime conclusion -> HOLD"
+}
