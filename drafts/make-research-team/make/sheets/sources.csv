@@ -1,0 +1,5 @@
+source_id,name,type,url,category,terms_checked_on,active
+s001,기업마당 지원사업 공고,rss,{{기업마당 RSS 주소}},grant,{{YYYY-MM-DD}},TRUE
+s002,K-Startup 사업공고,api,{{공공데이터포털 K-Startup 공고 API}},grant,{{YYYY-MM-DD}},TRUE
+s003,나라장터 입찰공고,api,{{공공데이터포털 조달청 입찰공고 API}},tender,{{YYYY-MM-DD}},FALSE
+s004,{{경쟁사 블로그·보도자료 RSS}},rss,{{URL}},competitor,{{YYYY-MM-DD}},FALSE

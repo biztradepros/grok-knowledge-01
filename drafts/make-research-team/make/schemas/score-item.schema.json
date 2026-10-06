@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "score-item",
+  "description": "S1에서 Claude가 공고 1건 × 고객 1명에 대해 돌려주는 JSON. Make의 Parse JSON 모듈에 이 구조를 넣는다.",
+  "type": "object",
+  "required": ["score", "fit_reason", "eligibility", "deadline", "summary", "action"],
+  "properties": {
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "fit_reason": { "type": "string", "description": "왜 맞는지/안 맞는지 한 줄" },
+    "eligibility": { "type": "string", "enum": ["충족", "미충족", "확인 필요"] },
+    "deadline": { "type": ["string", "null"], "description": "YYYY-MM-DD. 원문에 없으면 null" },
+    "summary": { "type": "string", "description": "고객 눈높이 3줄 요약" },
+    "action": { "type": "string", "enum": ["즉시 알림", "다이제스트", "버림"] }
+  },
+  "additionalProperties": false
+}
