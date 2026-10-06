@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Job Contract v0",
+  "description": "What the platform sends to ANY model behind the router, and what it must return. Vendor-neutral. Numbers come in via calc_run; numbers go out only as [[node_id]] placeholders or as change proposals.",
+  "type": "object",
+  "required": ["request", "response"],
+  "properties": {
+    "request": {
+      "type": "object",
+      "required": ["job_id", "role", "task", "building_state", "calc_run", "evidence", "output_schema_version"],
+      "properties": {
+        "job_id": { "type": "string" },
+        "role": { "enum": ["ARCHITECTURE_RESEARCHER","MEDICAL_RESEARCHER","LEGAL_RESEARCHER","FINANCE_RESEARCHER","CONSTRUCTION_REVIEWER","PARKING_REVIEWER","MEP_FIRE_REVIEWER","CHALLENGER","FACT_CHECKER","AI_COACH"] },
+        "task": { "type": "string", "description": "e.g. 'Review 3F BASE→KM36 impact. Focus: 의료법상 시설기준, 소방, 주차.'" },
+        "building_state": {
+          "type": "object",
+          "description": "Compact projection, not the whole DB: floors + selected options + param status/confidence for impacted inputs.",
+          "required": ["scenario_id", "selections", "impacted_inputs"],
+          "properties": {
+            "scenario_id": { "type": "string" },
+            "selections": { "type": "object", "additionalProperties": { "type": "string" } },
+            "impacted_inputs": { "type": "array", "items": { "type": "object", "required": ["key","value","unit","status","confidence"], "properties": { "key": {"type":"string"}, "value": {"type":"number"}, "unit": {"type":"string"}, "status": {"enum":["FIXED","ASSUMPTION","OPTION"]}, "confidence": {"type":"number"} } } }
+          }
+        },
+        "calc_run": {
+          "type": "object",
+          "required": ["id", "engine_version", "input_hash", "outputs", "flags"],
+          "properties": { "id": {"type":"string"}, "engine_version": {"type":"string"}, "input_hash": {"type":"string"}, "outputs": {"type":"object"}, "flags": {"type":"array"}, "impact": {"type":"object"} }
+        },
+        "evidence": { "type": "array", "items": { "type": "object", "required": ["evidence_id","chunk_id","text"], "properties": { "evidence_id":{"type":"string"}, "chunk_id":{"type":"string"}, "locator":{"type":"string"}, "text":{"type":"string"}, "reliability":{"type":"integer"} } } },
+        "thread": { "type": "array", "description": "Prior AI TALK turns (role + summary + findings), max 2 rounds.", "items": { "type": "object" } },
+        "tools_allowed": { "type": "array", "items": { "enum": ["search_evidence","get_calc_node_lineage","web_search","propose_change"] } },
+        "output_schema_version": { "const": "ai-result@0" }
+      }
+    },
+    "response": {
+      "type": "object",
+      "required": ["verdict", "summary", "findings", "coach_next"],
+      "additionalProperties": false,
+      "properties": {
+        "verdict": { "enum": ["SUPPORT","CONCERN","BLOCKER","INSUFFICIENT_EVIDENCE"] },
+        "summary": { "type": "string", "description": "Numbers ONLY as [[node_id]] placeholders. Raw 억/원 figures are rejected by the number guard unless they match calc_run." },
+        "findings": { "type": "array", "items": { "type": "object", "required": ["claim","type","evidence_ids"], "additionalProperties": false, "properties": {
+          "claim": { "type": "string" },
+          "type": { "enum": ["FACT","SOURCE","INFERENCE","ASSUMPTION"] },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } },
+          "affects_nodes": { "type": "array", "items": { "type": "string" } }
+        } } },
+        "proposed_changes": { "type": "array", "items": { "type": "object", "required": ["key","proposed_value","proposed_status","evidence_ids","why"], "additionalProperties": false, "properties": {
+          "key": { "type": "string" }, "proposed_value": { "type": "number" },
+          "proposed_status": { "enum": ["ASSUMPTION","OPTION"] },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } }, "why": { "type": "string" }
+        } } },
+        "coach_next": { "enum": ["CONTINUE","DEEPEN","CHALLENGE","VERIFY","REFRAME","STOP"] },
+        "open_questions_for_human": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

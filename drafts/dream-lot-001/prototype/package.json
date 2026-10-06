@@ -1,0 +1,11 @@
+{
+  "name": "dream-computable-building-prototype",
+  "private": true,
+  "type": "module",
+  "description": "LOT-001 prototype skeleton: deterministic calc engine + dependency graph. Numbers in scenarios/ are DUMMY.",
+  "scripts": {
+    "test": "node --experimental-strip-types --test packages/calc/engine.test.ts",
+    "demo": "node --experimental-strip-types packages/calc/demo.ts"
+  },
+  "engines": { "node": ">=22.6" }
+}

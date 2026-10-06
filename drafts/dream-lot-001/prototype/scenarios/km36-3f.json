@@ -1,0 +1,10 @@
+{
+  "id": "KM36-3F",
+  "baseVersion": "v0-dummy",
+  "selections": {
+    "1F": "COMMERCIAL",
+    "2F": "COMMERCIAL",
+    "3F": "KM36"
+  },
+  "overrides": {}
+}

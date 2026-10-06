@@ -1,0 +1,528 @@
+{
+  "projectId": "DAEHEUNG",
+  "baseVersion": "v0-dummy",
+  "_warning": "ALL NUMBERS ARE DUMMY PLACEHOLDERS. Not Daeheung data.",
+  "floors": [
+    {
+      "level": "1F",
+      "grossAreaM2": {
+        "key": "floor.1F.area",
+        "value": 950,
+        "unit": "M2",
+        "status": "ASSUMPTION",
+        "confidence": 0.3,
+        "evidence": [],
+        "note": "DUMMY — replace with Daeheung data + evidence"
+      },
+      "currentUse": "COMMERCIAL",
+      "status": "OPTION",
+      "options": [
+        "COMMERCIAL",
+        "ANCHOR_BAKERY",
+        "ANCHOR_RETAIL",
+        "KM30",
+        "KM36",
+        "KM40"
+      ]
+    },
+    {
+      "level": "2F",
+      "grossAreaM2": {
+        "key": "floor.2F.area",
+        "value": 950,
+        "unit": "M2",
+        "status": "ASSUMPTION",
+        "confidence": 0.3,
+        "evidence": [],
+        "note": "DUMMY — replace with Daeheung data + evidence"
+      },
+      "currentUse": "COMMERCIAL",
+      "status": "OPTION",
+      "options": [
+        "COMMERCIAL",
+        "ANCHOR_BAKERY",
+        "ANCHOR_RETAIL",
+        "KM30",
+        "KM36",
+        "KM40"
+      ]
+    },
+    {
+      "level": "3F",
+      "grossAreaM2": {
+        "key": "floor.3F.area",
+        "value": 950,
+        "unit": "M2",
+        "status": "ASSUMPTION",
+        "confidence": 0.3,
+        "evidence": [],
+        "note": "DUMMY — replace with Daeheung data + evidence"
+      },
+      "currentUse": "COMMERCIAL",
+      "status": "OPTION",
+      "options": [
+        "COMMERCIAL",
+        "ANCHOR_BAKERY",
+        "ANCHOR_RETAIL",
+        "KM30",
+        "KM36",
+        "KM40"
+      ]
+    }
+  ],
+  "optionCatalog": {
+    "COMMERCIAL": {
+      "code": "COMMERCIAL",
+      "label": "일반 근린상가",
+      "reviewRoles": [
+        "FINANCE_RESEARCHER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 0,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 0,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 100000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 0.75,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    },
+    "ANCHOR_BAKERY": {
+      "code": "ANCHOR_BAKERY",
+      "label": "베이커리급 앵커",
+      "reviewRoles": [
+        "FINANCE_RESEARCHER",
+        "LEGAL_RESEARCHER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 600,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 800000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 250000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 0.75,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    },
+    "ANCHOR_RETAIL": {
+      "code": "ANCHOR_RETAIL",
+      "label": "생활잡화급 앵커",
+      "reviewRoles": [
+        "FINANCE_RESEARCHER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 800,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 300000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 140000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 0.75,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    },
+    "KM30": {
+      "code": "KM30",
+      "label": "한방병원 30병상 (240평안)",
+      "reviewRoles": [
+        "MEDICAL_RESEARCHER",
+        "LEGAL_RESEARCHER",
+        "MEP_FIRE_REVIEWER",
+        "PARKING_REVIEWER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 793.4,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 1200000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 140000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 1.0,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    },
+    "KM36": {
+      "code": "KM36",
+      "label": "한방병원 36병상 (260평안)",
+      "reviewRoles": [
+        "MEDICAL_RESEARCHER",
+        "LEGAL_RESEARCHER",
+        "MEP_FIRE_REVIEWER",
+        "PARKING_REVIEWER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 859.5,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 1500000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 160000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 1.0,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    },
+    "KM40": {
+      "code": "KM40",
+      "label": "한방병원 40병상 (320평안)",
+      "reviewRoles": [
+        "MEDICAL_RESEARCHER",
+        "LEGAL_RESEARCHER",
+        "MEP_FIRE_REVIEWER",
+        "PARKING_REVIEWER"
+      ],
+      "params": {
+        "required_area_m2": {
+          "key": "required_area_m2",
+          "value": 1057.9,
+          "unit": "M2",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "fitout_capex": {
+          "key": "fitout_capex",
+          "value": 1800000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "annual_rent": {
+          "key": "annual_rent",
+          "value": 185000000,
+          "unit": "KRW",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — replace with Daeheung data + evidence"
+        },
+        "parking_per_100m2": {
+          "key": "parking_per_100m2",
+          "value": 1.0,
+          "unit": "RATIO",
+          "status": "ASSUMPTION",
+          "confidence": 0.3,
+          "evidence": [],
+          "note": "DUMMY — 실제 비율은 주차장법 시행령·대전시 조례로 검증"
+        }
+      }
+    }
+  },
+  "params": {
+    "units.lh": {
+      "key": "units.lh",
+      "value": 55,
+      "unit": "UNITS",
+      "status": "ASSUMPTION",
+      "confidence": 0.6,
+      "evidence": [],
+      "note": "SLIM-132 기준안 (연구 기준, 확정 아님)"
+    },
+    "units.private": {
+      "key": "units.private",
+      "value": 77,
+      "unit": "UNITS",
+      "status": "ASSUMPTION",
+      "confidence": 0.6,
+      "evidence": [],
+      "note": "SLIM-132 기준안 (연구 기준, 확정 아님)"
+    },
+    "res.gfa_m2": {
+      "key": "res.gfa_m2",
+      "value": 6600,
+      "unit": "M2",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "res.parking_per_unit": {
+      "key": "res.parking_per_unit",
+      "value": 0.7,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — 주택건설기준·조례 검증 필요"
+    },
+    "basement.levels": {
+      "key": "basement.levels",
+      "value": 2,
+      "unit": "COUNT",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "basement.area_per_level_m2": {
+      "key": "basement.area_per_level_m2",
+      "value": 1400,
+      "unit": "M2",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "basement.stalls_per_level": {
+      "key": "basement.stalls_per_level",
+      "value": 60,
+      "unit": "STALLS",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "basement.extra_cost_per_level_over_2": {
+      "key": "basement.extra_cost_per_level_over_2",
+      "value": 1200000000,
+      "unit": "KRW",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — 굴착·흙막이·지하수 추가분"
+    },
+    "cost.land": {
+      "key": "cost.land",
+      "value": 4000000000,
+      "unit": "KRW",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "cost.above_per_m2": {
+      "key": "cost.above_per_m2",
+      "value": 2000000,
+      "unit": "KRW_PER_M2",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "cost.basement_per_m2": {
+      "key": "cost.basement_per_m2",
+      "value": 2600000,
+      "unit": "KRW_PER_M2",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "cost.soft_ratio": {
+      "key": "cost.soft_ratio",
+      "value": 0.1,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "finance.pf_ltc": {
+      "key": "finance.pf_ltc",
+      "value": 0.7,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "finance.pf_rate": {
+      "key": "finance.pf_rate",
+      "value": 0.065,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "finance.pf_years": {
+      "key": "finance.pf_years",
+      "value": 2.5,
+      "unit": "YEARS",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "finance.avg_drawdown": {
+      "key": "finance.avg_drawdown",
+      "value": 0.5,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "price.private_per_unit": {
+      "key": "price.private_per_unit",
+      "value": 330000000,
+      "unit": "KRW_PER_UNIT",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "price.lh_per_unit": {
+      "key": "price.lh_per_unit",
+      "value": 160000000,
+      "unit": "KRW_PER_UNIT",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    },
+    "podium.cap_rate": {
+      "key": "podium.cap_rate",
+      "value": 0.065,
+      "unit": "RATIO",
+      "status": "ASSUMPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "DUMMY — replace with Daeheung data + evidence"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "B3",
+  "baseVersion": "v0-dummy",
+  "selections": {
+    "1F": "COMMERCIAL",
+    "2F": "COMMERCIAL",
+    "3F": "COMMERCIAL"
+  },
+  "overrides": {
+    "basement.levels": {
+      "key": "basement.levels",
+      "value": 3,
+      "unit": "COUNT",
+      "status": "OPTION",
+      "confidence": 0.3,
+      "evidence": [],
+      "note": "B3 대안"
+    }
+  }
+}
