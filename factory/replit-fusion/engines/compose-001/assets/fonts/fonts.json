@@ -1,0 +1,16 @@
+{
+  "fonts": [
+    {
+      "id": "nanum-gothic-regular",
+      "file": "NanumGothic-Regular.ttf",
+      "sha256": "76f45ef4a6bcff344c837c95a7dcc26e017e38b5846d5ae0cdcb5b86be2e2d31",
+      "license": "OFL-1.1",
+      "license_file": "OFL.txt",
+      "license_file_sha256": "eeacf16032901d0ed0456876ec77b8f0fda6b3fecec7d972f8543eb602e6c30f",
+      "source": "https://github.com/google/fonts/tree/main/ofl/nanumgothic",
+      "source_commit": "66928797f271fed5ee428544e7229685e2d90127",
+      "retrieved_at": "2026-10-14",
+      "notes": "OFL 1.1: 번들·재배포·상업 사용 가능. 단독 판매 금지. 수정 시 예약 글꼴 이름(Nanum) 사용 불가."
+    }
+  ]
+}
