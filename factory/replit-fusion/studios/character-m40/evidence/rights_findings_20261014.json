@@ -1,0 +1,14 @@
+{
+  "evidence_id": "DF-EV-M40-RIGHTS-001",
+  "findings": [
+    {"id": "R-1", "severity": "high", "what": "실존 연예인 초상이 들어간 기존 생성물",
+     "generation_ids": ["55c6bd2c-32f4-4183-ae7a-cab2bff48fd9", "f832e2a3"],
+     "evidence": "프롬프트 첫머리: 'Andy Lau stays the main figure' / 'keep Andy Lau's portrait as the dominant main figure'",
+     "action": "상업 게시 전 초상권·퍼블리시티권 허락 확인. 확인 전 M40 참조나 학습에 쓰지 않음"},
+    {"id": "R-2", "severity": "high", "what": "정체성 보존 오픈소스 부품 대부분이 insightface 비상업 모델에 의존",
+     "parts": ["PhotoMaker V2", "InstantID", "PuLID (SDXL/FLUX)", "IP-Adapter FaceID", "InfiniteYou"],
+     "evidence": "factory/replit-fusion/parts-registry.json DF-PART-CHR-*"},
+    {"id": "R-3", "severity": "medium", "what": "n8n Result Inbox 웹훅 무인증",
+     "url_path": "/webhook/dream-ai-result-inbox", "action": "공유 비밀 헤더 또는 HMAC 서명 추가 전 외부 AI 에 주소 공개 금지"}
+  ]
+}

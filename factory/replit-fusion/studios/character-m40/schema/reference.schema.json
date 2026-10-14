@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "df.character.reference.v1",
+  "title": "참조 이미지 등록",
+  "description": "사용자가 준 참조 이미지. 권리 상태가 사용 범위를 정한다. 실존 인물 사진은 얼굴 입력으로 쓰지 않는다.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ref_id", "character_id", "sha256", "source", "subject", "rights_status", "allowed_use", "registered_at"],
+  "properties": {
+    "ref_id": {"type": "string", "pattern": "^DF-REF-[A-Z0-9-]{3,60}$"},
+    "character_id": {"type": "string", "pattern": "^DF-CHAR-[A-Z0-9-]{2,40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source": {"enum": ["user_upload", "licensed_stock", "own_photoshoot", "generated_owned"]},
+    "subject": {"enum": ["real_person_identifiable", "real_person_unknown", "generated_character", "non_face_style"]},
+    "rights_status": {"enum": ["OWNED", "LICENSED_COMMERCIAL", "MODEL_RELEASE_ON_FILE", "UNVERIFIED", "PROHIBITED"]},
+    "allowed_use": {"enum": ["identity_input", "style_mood_only", "text_brief_only", "forbidden"],
+                    "description": "real_person_identifiable 이면 identity_input 불가. UNVERIFIED 이면 text_brief_only 이하."},
+    "storage": {"enum": ["private_bucket", "local_only"], "description": "공개 GitHub 에 원본을 두지 않는다."},
+    "notes": {"type": "string", "maxLength": 1000},
+    "registered_at": {"type": "string", "format": "date-time"}
+  },
+  "allOf": [
+    {"if": {"properties": {"subject": {"const": "real_person_identifiable"}}},
+     "then": {"properties": {"allowed_use": {"enum": ["text_brief_only", "forbidden"]}}}},
+    {"if": {"properties": {"rights_status": {"enum": ["UNVERIFIED", "PROHIBITED"]}}},
+     "then": {"properties": {"allowed_use": {"enum": ["text_brief_only", "forbidden"]}}}}
+  ]
+}

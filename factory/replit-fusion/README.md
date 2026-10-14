@@ -19,11 +19,12 @@ GitHub 오픈소스를 부품으로 확인하고, 라이선스와 실행 증거�
 | 파일 | 내용 |
 |---|---|
 | [radar-report-2026-10-14.md](radar-report-2026-10-14.md) | 첫 실행 보고. 기억 복구, 중복 제거, 발견 기술, 판정, HOLD |
-| [parts-registry.json](parts-registry.json) | 부품 등록부. 부품 23개, 필수 필드 전부 |
+| [parts-registry.json](parts-registry.json) | 부품 등록부. 부품 24개, 필수 필드 전부 |
 | [replit-warehouse-design.md](replit-warehouse-design.md) | Replit 시각 부품 창고 설계. 화면, 데이터, 어댑터 계약 |
 | [golden-test/moviepy_smoke.py](golden-test/moviepy_smoke.py) | 첫 GOLDEN TEST 스크립트 |
 | [golden-test/evidence/](golden-test/evidence/) | 실행 증거 JSON 과 프레임 이미지 |
 | [engines/compose-001/](engines/compose-001/) | DF-ENGINE-COMPOSE-001 영상 합성 엔진. 계약, 시험, 레드팀, 증거 |
+| [studios/character-m40/](studios/character-m40/) | M40 캐릭터 스튜디오 설계, 스키마, 얼굴 일관성 평가기 |
 
 ## 판정 규칙
 

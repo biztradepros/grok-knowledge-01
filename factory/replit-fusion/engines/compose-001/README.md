@@ -146,4 +146,4 @@ validate → probe_input → subtitles → rasterize → write_track → render 
 3. 공유 API 의 인증, 할당량, 동시성.
 4. 격리 실행(별도 컨테이너, 비루트, 네트워크 차단, seccomp).
 5. HQ 계약 원문. 이 엔진은 작업 지시서에 적힌 필드 이름(`video_uri`, `subtitles_json_or_srt`, `output_size`, `output_fps`, `safe_area`, `font_asset`, `job_id`)과 노션 FM v2 상태 계약(`ASSET_READY`)에 맞췄다. HQ 에 별도 JSON 스키마가 있으면 대조가 필요하다.
-6. "FM 3.0" 이라는 이름의 시스템은 이 저장소와 노션 검색에서 찾지 못했다. 어떤 것도 수정하지 않았다.
+6. 정정(2026-10-14): "FM 3.0" 은 n8n 에 `DREAM FM 3.0 SOPHIE DUPLICATE GUARD 001` (비활성) 로 존재한다. 이 엔진은 그 워크플로를 수정하지 않았다.

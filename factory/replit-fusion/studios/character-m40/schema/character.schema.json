@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "df.character.v1",
+  "title": "캐릭터",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["character_id", "codename", "status", "persona", "face_design", "protected_identities", "versions"],
+  "properties": {
+    "character_id": {"type": "string", "pattern": "^DF-CHAR-[A-Z0-9-]{2,40}$"},
+    "codename": {"type": "string", "maxLength": 32},
+    "status": {"enum": ["DRAFT", "REFERENCES_REVIEWED", "EXPLORING", "SHORTLIST", "MASTER_LOCKED", "PRODUCTION", "RETIRED"]},
+    "persona": {"type": "object", "additionalProperties": false, "required": ["age_range", "role", "tone"],
+      "properties": {"age_range": {"type": "string"}, "role": {"type": "string"}, "tone": {"type": "array", "items": {"type": "string"}},
+                     "wardrobe": {"type": "array", "items": {"type": "string"}}, "markets": {"type": "array", "items": {"type": "string"}},
+                     "no_go": {"type": "array", "items": {"type": "string"}}}},
+    "face_design": {"type": "object", "description": "사람 이름이 아니라 속성으로만 적는다.",
+      "additionalProperties": false,
+      "properties": {"traits": {"type": "object", "description": "Higgsfield ai_influencer selection 과 같은 키"},
+                     "signature_features": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
+                     "avoid": {"type": "array", "items": {"type": "string"}}}},
+    "protected_identities": {"type": "array", "items": {"type": "string"}, "description": "겹치면 안 되는 캐릭터. 예: SOPHIE_V1_1, F30"},
+    "reference_ids": {"type": "array", "items": {"type": "string"}},
+    "versions": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["version", "state"],
+      "properties": {"version": {"type": "string"}, "state": {"enum": ["exploring", "locked", "superseded"]},
+                     "lock_id": {"type": ["string", "null"]}, "changelog": {"type": "string"}}}},
+    "notion_url": {"type": ["string", "null"]},
+    "canvas_node_id": {"type": ["string", "null"]}
+  }
+}

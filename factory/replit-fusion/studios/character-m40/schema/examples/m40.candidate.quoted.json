@@ -1,0 +1,11 @@
+{
+  "candidate_id": "DF-CAND-M40-R1-BATCH4",
+  "character_id": "DF-CHAR-M40",
+  "round": 1,
+  "parent_candidate_id": null,
+  "state": "QUOTED",
+  "engine": {"provider": "higgsfield", "model": "ai_influencer_sheet", "tool": "ai_influencer_prepare"},
+  "request": {"prompt": "Original fictional character, not based on any real person or celebrity. Korean man in his early 40s, calm confident premium automotive lifestyle host.",
+              "selection": {"gender": ["male"], "age": ["mature"]}, "seed": 40140, "reference_ids": [], "element_ids": []},
+  "cost": {"quoted_credits": 4.5, "actual_credits": null, "approved_by": null, "approved_at": null}
+}

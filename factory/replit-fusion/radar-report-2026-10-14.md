@@ -38,7 +38,7 @@ MASTER WORK ORDER v1.0 의 STEP 1~8 을 한 번 돌렸다. 첫 GOLDEN TEST 는 �
 | Postiz 연동 | 거버넌스상 PUBLISHING 레일, Postiz MCP 연결됨 | EXISTING_RAIL 로 등록. 새 연동을 만들지 않음 |
 | Replit UI 구조 | Visual Command OS Handoff (SvelteKit + Svelte Flow, 교체 가능한 DB) | 같은 결정을 따름. 창고는 그 OS 의 왼쪽 패널 |
 | 생성 도구 계약 | FM v2 MACHINE LINE / ADAPTER, 상태 계약 | 같은 상태 계약을 씀 |
-| "FM 3.0 SLIM" | 노션에서 이 이름은 찾지 못함. FM v2(마감 중), FM v3(백로그), MULTI-6 SLIM 은 있음 | 이름 확인을 HOLD 로 둠. 어느 쪽도 수정하지 않음 |
+| "FM 3.0 SLIM" | 노션에서 이 이름은 찾지 못함. **정정(같은 날):** n8n 에 `DREAM FM 3.0 SOPHIE DUPLICATE GUARD 001` 가 있음 | 어느 쪽도 수정하지 않음 |
 
 ## 3. 발견한 기술
 
@@ -169,7 +169,7 @@ mp4 파일은 커밋하지 않았다. 스크립트를 다시 돌리면 원본은
 ## 8. HOLD 항목
 
 1. Replit 실제 실행. 기존 앱을 쓸지, 새 앱을 만들지(비용 가능) 사람이 정해야 한다.
-2. "FM 3.0 SLIM" 이름. 노션에서 찾지 못했다. FM v2, FM v3 백로그, MULTI-6 SLIM 중 무엇인지 확인이 필요하다.
+2. "FM 3.0 SLIM" 이름. 노션에서는 찾지 못했다. 정정(같은 날): n8n 에 `DREAM FM 3.0 SOPHIE DUPLICATE GUARD 001` (비활성) 이 있다. "SLIM" 이 붙은 범위는 확인 필요.
 3. 캐릭터 정체성 부품 상업화. insightface 상업 라이선스 또는 상용 API 경로를 정해야 한다.
 4. 기존 canonical 저장소 `dream-factories/dream-factory-control-center`. 이 세션 범위 밖이고, 노션 기록상 조직 OAuth 403 이다. 읽지 않았다.
 5. 이 폴더를 main 에 넣을지. 이 저장소는 승인 페이퍼만 두는 공개 자료방이다. 사람이 정한다.

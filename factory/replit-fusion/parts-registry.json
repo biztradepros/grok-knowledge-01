@@ -539,6 +539,29 @@
       "APPROVAL_STATUS": "PENDING_HUMAN",
       "LEVEL": "L2_VERIFIED",
       "NOTES": "MoviePy 를 쓰지 않고 ffmpeg 직접 호출. 레드팀 결함 9건 중 7건 수정, 1건 차단 확인, 1건 상류(moviepy) 결함. Replit 실행 HOLD."
+    },
+    {
+      "PART_ID": "DF-ENGINE-IDENTITY-001",
+      "NAME": "얼굴 일관성 평가기 (자체 부품)",
+      "GITHUB_URL": "https://github.com/biztradepros/grok-knowledge-01/tree/ccr-851f8c46-le8k84/factory/replit-fusion/studios/character-m40/identity-eval",
+      "CATEGORY": "identity-quality-check",
+      "DESCRIPTION": "후보 vs MASTER 코사인, 보호 대상(SOPHIE/F30) 분리 판정. OpenCV YuNet + SFace.",
+      "LICENSE": "저장소 소유자 결정 필요",
+      "MODEL_WEIGHTS_LICENSE": "YuNet MIT, SFace Apache-2.0 (opencv_zoo 모델 폴더 LICENSE). sha256 을 LFS 포인터와 대조",
+      "STARS": null,
+      "FORKS": null,
+      "LAST_UPDATED": "2026-10-14",
+      "HEAD_SHA": null,
+      "DEPENDENCIES": "opencv-python-headless 4.10, numpy",
+      "GPU_REQUIRED": false,
+      "API_AVAILABLE": "Python + CLI",
+      "REPLIT_COMPATIBILITY": "EXPECTED_HIGH / UNTESTED_ON_REPLIT — Python 3.11 시험 통과, CPU 0.2초/장",
+      "INSTALL_STATUS": "INSTALLED_IN_TEST_CONTAINER",
+      "TEST_STATUS": "PASS — 시험 11개 (기계 동작). AI 얼굴 보정 HOLD",
+      "EVIDENCE_URL": "factory/replit-fusion/studios/character-m40/evidence/identity_eval_tests.log",
+      "APPROVAL_STATUS": "PENDING_HUMAN",
+      "LEVEL": "L2_VERIFIED",
+      "NOTES": "insightface 를 대체하는 상업 가능 경로. 판정 구간 calibrated=false."
     }
   ]
 }

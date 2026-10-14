@@ -1,0 +1,32 @@
+# DF-ENGINE-IDENTITY-001 tests — SANDBOX/claude-code-remote-container (NOT Replit)
+# python 3.11.17 opencv 4.10.0 numpy 2.4.6
+test_cli_usage_error (test_identity.BasicTests.test_cli_usage_error) ... --protected 는 NAME=a.png,b.png 형식입니다.
+ok
+test_model_hash_is_checked (test_identity.BasicTests.test_model_hash_is_checked) ... ok
+test_no_face (test_identity.BasicTests.test_no_face) ... ok
+test_unreadable_and_missing (test_identity.BasicTests.test_unreadable_and_missing) ... ok
+test_verdict_bands (test_identity.BasicTests.test_verdict_bands) ... ok
+test_different_people_are_below_upstream_threshold (test_identity.SmokeFaceTests.test_different_people_are_below_upstream_threshold) ... ok
+test_other_person_is_drift (test_identity.SmokeFaceTests.test_other_person_is_drift) ... ok
+test_protected_identity_blocks (test_identity.SmokeFaceTests.test_protected_identity_blocks) ... ok
+test_result_has_no_embeddings (test_identity.SmokeFaceTests.test_result_has_no_embeddings) ... ok
+test_same_face_under_transforms_passes (test_identity.SmokeFaceTests.test_same_face_under_transforms_passes) ... ok
+test_small_face_is_rejected_not_scored (test_identity.SmokeFaceTests.test_small_face_is_rejected_not_scored) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.380s
+
+OK
+
+# schema tests
+test_examples_pass (test_schemas.SchemaTests.test_examples_pass) ... ok
+test_master_lock_requires_human_owner_and_rights (test_schemas.SchemaTests.test_master_lock_requires_human_owner_and_rights) ... ok
+test_no_generation_without_spend_approval (test_schemas.SchemaTests.test_no_generation_without_spend_approval) ... ok
+test_real_person_cannot_be_identity_input (test_schemas.SchemaTests.test_real_person_cannot_be_identity_input) ... ok
+test_schemas_are_valid (test_schemas.SchemaTests.test_schemas_are_valid) ... ok
+test_unverified_rights_limit_use (test_schemas.SchemaTests.test_unverified_rights_limit_use) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.049s
+
+OK

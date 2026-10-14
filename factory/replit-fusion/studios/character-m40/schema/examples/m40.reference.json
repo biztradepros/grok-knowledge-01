@@ -1,0 +1,12 @@
+{
+  "ref_id": "DF-REF-M40-001",
+  "character_id": "DF-CHAR-M40",
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "source": "user_upload",
+  "subject": "real_person_identifiable",
+  "rights_status": "UNVERIFIED",
+  "allowed_use": "text_brief_only",
+  "storage": "private_bucket",
+  "notes": "자리표시. 실제 이미지 3장은 이 세션에 올라오지 않았다.",
+  "registered_at": "2026-10-14T00:00:00Z"
+}

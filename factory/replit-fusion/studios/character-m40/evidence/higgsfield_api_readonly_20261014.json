@@ -1,0 +1,30 @@
+{
+  "evidence_id": "DF-EV-M40-HF-READONLY-001",
+  "lot": "DF-DCL-M40-CHARACTER-STUDIO-001",
+  "run_at": "2026-10-14",
+  "channel": "Higgsfield MCP (claude.ai connector 'ai') from claude-code-remote sandbox",
+  "credits_spent": 0,
+  "calls": [
+    {"tool": "balance", "result": {"credits": 145.53, "subscription_plan_type": "starter"}},
+    {"tool": "show_reference_elements(list)", "result": {"count": 1, "items": [
+      {"id": "bfb09299-df30-46de-9dcf-231a79290bc1", "name": "SOPHIE_V1_1", "category": "character", "status": "completed",
+       "media_id": "7ab05b4a-ec2e-4db7-93a2-0300fb9cc439"}]}},
+    {"tool": "show_characters(list)", "result": {"soul_characters": 0}},
+    {"tool": "models_explore(get soul_2)", "result": "Soul 2.0: soul_id 1개, 이미지 입력 1장, 1.5k/2k. 비용 정보는 API 에 없음"},
+    {"tool": "ai_influencer_get_options(normal)", "result": "이산형 특징 선택(성별, 나이, 체형, 머리, 눈 모양, 피부색 등). 실존 인물 비율 혼합 같은 연속 제어는 없음"},
+    {"tool": "ai_influencer_prepare", "params": {"tier": "normal", "randomize": false, "batch_size": 4, "seed": 40140,
+      "selection": {"gender": ["male"], "age": ["mature"], "aesthetic": ["suits"], "ethnicity_origin_base": ["east_asian"],
+                    "body_type": ["body_athletic"], "height": ["h_tall"], "hair": ["hair_short"], "hair_colour": ["hc_darkbrown"],
+                    "facial_hair": ["fh_stubble"], "accessory": ["acc_none"]},
+      "brief": "Original fictional character, not based on any real person or celebrity. Korean man in his early 40s, calm confident premium automotive lifestyle host. ..."},
+     "result": {"credits": 4.5, "submitted": false}},
+    {"tool": "transactions(40)", "result": "최근 단가 실측: GPT Image 2.5 Flare 0.25~1, GPT Image 2.0 0.5, AI Influencer Sheet 1.12, Seedream 5.0 Pro 2.5, Grok Imagine Video 1.5 Lite 5, Seedance 2.0 Mini 5, Kling 3.0 Turbo 7.5"},
+    {"tool": "show_generations(image, 40)", "result": "SOPHIE Element 사용 생성 9건: fd7b5a40, 7a1c1988, b9803bcf, b8606a87, e26203a0, 38d0fe53, f2a26448, 64befc2e, f633fbd2. F30 Element·Soul 없음"}
+  ],
+  "not_done": [
+    "생성(generate_*, ai_influencer_generate) 0건 — 사람 승인 전",
+    "Reference Element 생성/수정 0건 — SOPHIE_V1_1 그대로",
+    "미디어 다운로드 실패: d2ol7oe51mr4n9.cloudfront.net, d8j0ntlcm91z4.cloudfront.net 이 이 환경 네트워크 정책에서 403"
+  ],
+  "verdict": "HIGGSFIELD API READ + QUOTE PASS / GENERATION NOT RUN / INTEGRATION PASS 아님"
+}

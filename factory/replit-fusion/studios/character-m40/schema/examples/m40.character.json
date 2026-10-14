@@ -1,0 +1,25 @@
+{
+  "character_id": "DF-CHAR-M40",
+  "codename": "M40",
+  "status": "DRAFT",
+  "persona": {
+    "age_range": "40-45 (가정: M40 = 40대 남성, 확인 필요)",
+    "role": "프리미엄 자동차 라이프스타일 호스트",
+    "tone": ["차분함", "신뢰", "절제된 고급감"],
+    "wardrobe": ["테일러드 재킷", "니트", "드라이빙 글러브"],
+    "markets": ["KR"],
+    "no_go": ["실존 인물·연예인과 닮게 만들기", "특정 자동차 브랜드 로고 무단 사용"]
+  },
+  "face_design": {
+    "traits": {"gender": ["male"], "age": ["mature"], "ethnicity_origin_base": ["east_asian"], "hair": ["hair_short"],
+               "hair_colour": ["hc_darkbrown"], "facial_hair": ["fh_stubble"], "body_type": ["body_athletic"], "height": ["h_tall"],
+               "aesthetic": ["suits"]},
+    "signature_features": ["옅은 수염", "짧고 정돈된 머리"],
+    "avoid": ["유명인 이름이나 얼굴을 프롬프트·참조로 쓰기"]
+  },
+  "protected_identities": ["SOPHIE_V1_1", "F30"],
+  "reference_ids": ["DF-REF-M40-001", "DF-REF-M40-002", "DF-REF-M40-003"],
+  "versions": [{"version": "v0.1.0", "state": "exploring", "lock_id": null, "changelog": "초안"}],
+  "notion_url": null,
+  "canvas_node_id": null
+}
