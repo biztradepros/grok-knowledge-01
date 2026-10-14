@@ -1,0 +1,40 @@
+{
+  "test_id": "DF-GT-VIDEO-002",
+  "part_id": "DF-PART-VID-002",
+  "tool": "auto-editor",
+  "tool_version": "29.3.1",
+  "command": "auto-editor source_16x9.mp4 --edit audio:threshold=0.04 --margin 0.1s -o ae_cut.mp4 --no-open",
+  "note": "pip 패키지는 첫 실행 때 GitHub releases 에서 linux-x86_64 바이너리를 내려받는다. 실행 소요 1.96초(도구 출력).",
+  "source": {
+    "file": "source_16x9.mp4",
+    "sha256": "106c37a3f8af49c5615a9c49204c6c73fcaa661e5c14bb35bad41afe838b083e",
+    "duration": 6.0
+  },
+  "output": {
+    "file": "ae_cut.mp4",
+    "sha256": "6555a09a8a0952e9f23911ec581ca38c0bd3686c9ee2f88a7c9dd7b7a78cb13e",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "5.166667"
+      }
+    }
+  },
+  "checks": {
+    "duration_reduced": true,
+    "removed_about_1s_minus_margin": true
+  },
+  "result": "PASS"
+}

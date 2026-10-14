@@ -1,0 +1,64 @@
+{
+  "test_id": "DF-GT-VIDEO-001",
+  "part_id": "DF-PART-VID-001",
+  "tool": "moviepy",
+  "tool_version": "2.2.1",
+  "module_version_attr": "2.1.2",
+  "font": "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+  "elapsed_seconds": 7.36,
+  "source": {
+    "file": "source_16x9.mp4",
+    "sha256": "106c37a3f8af49c5615a9c49204c6c73fcaa661e5c14bb35bad41afe838b083e",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    }
+  },
+  "output": {
+    "file": "short_9x16.mp4",
+    "sha256": "af839bdf862528699eadbec7232552806bdd75328ec6c011dc4a16caf581dee8",
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "format": {
+        "duration": "5.000000"
+      }
+    }
+  },
+  "frame": {
+    "file": "short_frame_t2.png",
+    "sha256": "9744c7f92a87a399b49648cabef281346f8c5dcb7611b3971a99f72e9606f41e"
+  },
+  "checks": {
+    "resolution_540x960": true,
+    "video_h264": true,
+    "audio_aac_present": true,
+    "silence_removed_duration_about_5s": true
+  },
+  "result": "PASS"
+}
