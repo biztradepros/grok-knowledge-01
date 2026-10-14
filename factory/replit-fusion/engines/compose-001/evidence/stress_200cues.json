@@ -1,0 +1,25 @@
+{
+  "test_id": "DF-GT-COMPOSE-STRESS",
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "runs": 3,
+  "mode": "200 cues, 1080x1920, 60fps",
+  "fixture_sha256": "a55b3e503858b242ed5b352f50ad2df63d8a0275242671c0f52a0b1d3b38e132",
+  "states": {
+    "ASSET_READY": 3
+  },
+  "distinct_output_sha256": {
+    "d8465476b27336bf9392663810d5fe327182b517ecb9270901d48c84eb9750a6": 3
+  },
+  "deterministic": true,
+  "render_seconds": {
+    "min": 8.087,
+    "median": 8.182,
+    "max": 8.292
+  },
+  "wall_seconds": 44.1,
+  "max_rss_mb": {
+    "ffmpeg_children": 319,
+    "python": 266
+  },
+  "errors": []
+}

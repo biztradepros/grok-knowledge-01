@@ -1,0 +1,65 @@
+{
+  "test_id": "DF-GT-COMPOSE-001",
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "fixture_sha256": "a55b3e503858b242ed5b352f50ad2df63d8a0275242671c0f52a0b1d3b38e132",
+  "states": {
+    "A_srt": "ASSET_READY",
+    "B_json": "ASSET_READY"
+  },
+  "errors": {},
+  "output_sha256": {
+    "A_srt": "1494ea90c3b5723074bd814991cc8170176e68e7c02d92ecebb211fafdeb705b",
+    "B_json": "1494ea90c3b5723074bd814991cc8170176e68e7c02d92ecebb211fafdeb705b"
+  },
+  "subtitles_sha256": {
+    "A_srt": "d1bdf8575b9aec5277431e2a89a5675e6674eb5bc8e9ef4505eba54a24fc6faa",
+    "B_json": "d1bdf8575b9aec5277431e2a89a5675e6674eb5bc8e9ef4505eba54a24fc6faa"
+  },
+  "deterministic_output": true,
+  "checks": {
+    "container_mp4": true,
+    "video_h264": true,
+    "resolution": true,
+    "pix_fmt_yuv420p": true,
+    "fps": true,
+    "audio_aac": true,
+    "duration": true,
+    "overlay_visible": true
+  },
+  "overlay_checks": [
+    {
+      "cue": 0,
+      "opaque_pixels": 44820,
+      "median_diff_output": 1.33,
+      "median_diff_source": 127.33,
+      "closer_to_subtitle_ratio": 0.8843,
+      "ok": true
+    },
+    {
+      "cue": 1,
+      "opaque_pixels": 104164,
+      "median_diff_output": 1.0,
+      "median_diff_source": 135.33,
+      "closer_to_subtitle_ratio": 0.8914,
+      "ok": true
+    },
+    {
+      "cue": 2,
+      "opaque_pixels": 67906,
+      "median_diff_output": 1.0,
+      "median_diff_source": 145.0,
+      "closer_to_subtitle_ratio": 0.8937,
+      "ok": true
+    }
+  ],
+  "render_seconds": {
+    "A_srt": 5.237,
+    "B_json": 5.105
+  },
+  "frames": [
+    "frame_t1.0.png",
+    "frame_t2.7.png",
+    "frame_t4.7.png"
+  ],
+  "result": "PASS"
+}

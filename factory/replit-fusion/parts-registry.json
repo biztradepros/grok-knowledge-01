@@ -516,6 +516,29 @@
       "APPROVAL_STATUS": "BLOCKER",
       "LEVEL": "L1_DISCOVERED",
       "NOTES": "Character Factory 상업화의 핵심 차단 요인. 상업 라이선스 확보 또는 비-insightface 경로 필요."
+    },
+    {
+      "PART_ID": "DF-ENGINE-COMPOSE-001",
+      "NAME": "DREAM 영상 합성 엔진 (자체 부품)",
+      "GITHUB_URL": "https://github.com/biztradepros/grok-knowledge-01/tree/ccr-851f8c46-le8k84/factory/replit-fusion/engines/compose-001",
+      "CATEGORY": "video-compositor",
+      "DESCRIPTION": "영상 + 한국어 자막(SRT/JSON) + 글꼴 → 9:16 H.264/AAC MP4, ffprobe JSON, 결과 JSON. 계약 df.compose.v1.",
+      "LICENSE": "저장소 소유자 결정 필요 (코드 라이선스 미지정)",
+      "MODEL_WEIGHTS_LICENSE": "N/A. 번들 글꼴 나눔고딕 OFL-1.1",
+      "STARS": null,
+      "FORKS": null,
+      "LAST_UPDATED": "2026-10-14",
+      "HEAD_SHA": "bd4713c0d7",
+      "DEPENDENCIES": "Python>=3.11, Pillow 11~12, ffmpeg/ffprobe (libx264, aac)",
+      "GPU_REQUIRED": false,
+      "API_AVAILABLE": "Python 라이브러리 + CLI (HTTP 없음)",
+      "REPLIT_COMPATIBILITY": "EXPECTED_HIGH / UNTESTED_ON_REPLIT — Python 3.11 + Pillow 11.3 에서 시험 통과, Nix ffmpeg 필요",
+      "INSTALL_STATUS": "INSTALLED_IN_TEST_CONTAINER",
+      "TEST_STATUS": "PASS — 시험 44개 x 3환경, GOLDEN, 20회 결정론, 200자막 부하",
+      "EVIDENCE_URL": "factory/replit-fusion/engines/compose-001/evidence/README.md",
+      "APPROVAL_STATUS": "PENDING_HUMAN",
+      "LEVEL": "L2_VERIFIED",
+      "NOTES": "MoviePy 를 쓰지 않고 ffmpeg 직접 호출. 레드팀 결함 9건 중 7건 수정, 1건 차단 확인, 1건 상류(moviepy) 결함. Replit 실행 HOLD."
     }
   ]
 }

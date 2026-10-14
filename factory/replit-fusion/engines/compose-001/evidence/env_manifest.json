@@ -1,0 +1,63 @@
+{
+  "engine": {
+    "id": "DF-ENGINE-COMPOSE-001",
+    "version": "0.1.0",
+    "contract": "df.compose.v1"
+  },
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "generated_at": "2026-10-14T03:44:26Z",
+  "python": "3.13.16",
+  "python_executable_is_venv": false,
+  "pillow": "12.3.0",
+  "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "cpu_count": 4,
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "ffmpeg_path": "/usr/bin/ffmpeg",
+  "ffprobe_path": "/usr/bin/ffprobe",
+  "required_encoders": [
+    "aac",
+    "libx264"
+  ],
+  "required_filters": [
+    "crop",
+    "format",
+    "fps",
+    "overlay",
+    "scale",
+    "setsar"
+  ],
+  "ffmpeg_configuration": "configuration:\n    --prefix=/usr\n    --extra-version=3ubuntu5\n    --toolchain=hardened\n    --libdir=/usr/lib/x86_64-linux-gnu\n    --incdir=/usr/include/x86_64-linux-gnu\n    --arch=amd64\n    --enable-gpl\n    --disable-stripping\n    --disable-omx\n    --enable-gnutls\n    --enable-libaom\n    --enable-libass\n    --enable-libbs2b\n    --enable-libcaca\n    --enable-libcdio\n    --enable-libcodec2\n    --enable-libdav1d\n    --enable-libflite\n    --enable-libfontconfig\n    --enable-libfreetype\n    --enable-libfribidi\n    --enable-libglslang\n    --enable-libgme\n    --enable-libgsm\n    --enable-libharfbuzz\n    --enable-libmp3lame\n    --enable-libmysofa\n    --enable-libopenjpeg\n    --enable-libopenmpt\n    --enable-libopus\n    --enable-librubberband\n    --enable-libshine\n    --enable-libsnappy\n    --enable-libsoxr\n    --enable-libspeex\n    --enable-libtheora\n    --enable-libtwolame\n    --enable-libvidstab\n    --enable-libvorbis\n    --enable-libvpx\n    --enable-libwebp\n    --enable-libx265\n    --enable-libxml2\n    --enable-libxvid\n    --enable-libzimg\n    --enable-openal\n    --enable-opencl\n    --enable-opengl\n    --disable-sndio\n    --enable-libvpl\n    --disable-libmfx\n    --enable-libdc1394\n    --enable-libdrm\n    --enable-libiec61883\n    --enable-chromaprint\n    --enable-frei0r\n    --enable-ladspa\n    --enable-libbluray\n    --enable-libjack\n    --enable-libpulse\n    --enable-librabbitmq\n    --enable-librist\n    --enable-libsrt\n    --enable-libssh\n    --enable-libsvtav1\n    --enable-libx264\n    --enable-libzmq\n    --enable-libzvbi\n    --enable-lv2\n    --enable-sdl2\n    --enable-libplacebo\n    --enable-librav1e\n    --enable-pocketsphinx\n    --enable-librsvg\n    --enable-libjxl\n    --enable-shared",
+  "git_commit": "bd4713c0d7ecfd91202cf3cac1aec96e6f259933",
+  "git_dirty": true,
+  "source_sha256": {
+    ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+    "README.md": "64d73217591ace25372799b229c535e0d78c3dcb05148a0eeb3c64a07191ba7c",
+    "REDTEAM.md": "7b9288814fbd89f8be505302660d7d43b627de6f6e197c98ce9340a37428c93a",
+    "assets/fonts/NanumGothic-Regular.ttf": "76f45ef4a6bcff344c837c95a7dcc26e017e38b5846d5ae0cdcb5b86be2e2d31",
+    "assets/fonts/OFL.txt": "eeacf16032901d0ed0456876ec77b8f0fda6b3fecec7d972f8543eb602e6c30f",
+    "assets/fonts/fonts.json": "57dd40979bae0d1fea2a2fa8360f01b396418a87390b5925128d9ecb7ea0c20d",
+    "df_compose/__init__.py": "47c167935cb0d03b700f31e18a0e25b98e749fed7887668788b9954ab7bf2f76",
+    "df_compose/__main__.py": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
+    "df_compose/cli.py": "0895e74cd6887c96eb1f93769cade2fe6c288f77e36208aa778abfa7ee2f38c3",
+    "df_compose/contract.py": "cc7a5cb611af5c6c2a618385b331924d1ed7da7f99a799ac6de2851e6416768a",
+    "df_compose/errors.py": "93b660daa10a4f3aacdcec0526d742931d652615d2938c8ab4350342cf244f50",
+    "df_compose/media.py": "a9c5fcc9f0ad8046d899d17a7866ed018b94ef9978dca1cecab434d66d69ba40",
+    "df_compose/render.py": "bd147f15baf6a56d1e257f749f4f6c15186f78fd474de4ed48792d0a6577f62b",
+    "df_compose/subtitles.py": "f76a95709ec52201235c2432343041d45466c500b4aad1e2b600571bec838e3c",
+    "fixtures/make_fixture.py": "c37c722b848f7639610666f95f3c6a656cb1a5b2ea10dd1e9f3650875f1ef411",
+    "fixtures/subtitles_ko.json": "32f8c0a76b50039d728d7709e88e666adf1dbfab9a820fd596d690802748abd3",
+    "fixtures/subtitles_ko.srt": "cba29abacc9a86a95983ec605274facd05e6b36b1a40b3f03ee0014572e9a43a",
+    "requirements.txt": "991be04c45603af9c0e427dee4fadacdf143313d5fdb87140069746ee618fceb",
+    "tests/support.py": "8a68626c44a7fdc891d77e5c06c3e3f06aab79762ad7d4ccc9f727bb8fb83572",
+    "tests/test_contract.py": "f09c8e445b72a92f80f7e342e924179cd12552099aaa736e472fd732e3245748",
+    "tests/test_overlay_check.py": "55bfa97fde741497ee2bcadce71c961b7ee26ec51b1452d340e27dee1f2e9740",
+    "tests/test_redteam.py": "b3c6b2a07908c99362393ceef4270e5ff06d0614ff751f2733334591eb036076",
+    "tests/test_render.py": "a9b891c026b861e4ab9b5a0210452fd4d40c4d35bc77727db23f4c4118906889",
+    "tests/test_timing.py": "6dd9a22cb25f2dc559c62c1bd354214c2be02af1f1baf15bb6ee17c1ccee12d2",
+    "tools/build_zip.py": "18c706c7491f746cd662206ff5bf78610f848a38a505a170d0106a0c5d42b91e",
+    "tools/env_manifest.py": "6014dc5d915d895b8ff8e7849d24b688b40d9cd92895a0ccf42b10b6fb05d67c",
+    "tools/golden_run.py": "123e85257262ec62221df8982128d1c8f8220351030541ab9b112766b6219067",
+    "tools/repeat_run.py": "250fe09856c5b19330eda0c7730800487ba79f837b2722ea558bc09b9cc0d0ea"
+  }
+}

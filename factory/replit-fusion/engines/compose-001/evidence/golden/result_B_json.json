@@ -1,0 +1,176 @@
+{
+  "contract": "df.compose.v1",
+  "engine": {
+    "id": "DF-ENGINE-COMPOSE-001",
+    "version": "0.1.0",
+    "git_commit": "bd4713c0d7ecfd91202cf3cac1aec96e6f259933",
+    "dirty": false
+  },
+  "job_id": "DF-JOB-COMPOSE-GOLDEN-B",
+  "state": "ASSET_READY",
+  "environment": {
+    "label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+    "python": "3.13.16",
+    "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39",
+    "pillow": "12.3.0",
+    "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+  },
+  "started_at": "2026-10-14T03:47:09Z",
+  "request_sha256": "974323d515b08e661ed238d0d0b58a638c45d9c2cd803c6f8ac37c7469cc0a42",
+  "input": {
+    "uri": "file:///tmp/claude-0/-home-user-grok-knowledge-01/8b467678-8946-5a2c-9c41-3fb936d7aa54/scratchpad/golden2/inputs/fixture.mp4",
+    "sha256": "a55b3e503858b242ed5b352f50ad2df63d8a0275242671c0f52a0b1d3b38e132",
+    "bytes": 2093301,
+    "demuxer": "mov",
+    "width": 1280,
+    "height": 720,
+    "duration": 6.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "has_audio": true
+  },
+  "subtitles": {
+    "count": 3,
+    "sha256": "d1bdf8575b9aec5277431e2a89a5675e6674eb5bc8e9ef4505eba54a24fc6faa"
+  },
+  "font": {
+    "uri": "file:///home/user/grok-knowledge-01/factory/replit-fusion/engines/compose-001/assets/fonts/NanumGothic-Regular.ttf",
+    "sha256": "76f45ef4a6bcff344c837c95a7dcc26e017e38b5846d5ae0cdcb5b86be2e2d31",
+    "license": "OFL-1.1",
+    "license_uri": "file:///home/user/grok-knowledge-01/factory/replit-fusion/engines/compose-001/assets/fonts/OFL.txt"
+  },
+  "layout": {
+    "font_px": 86,
+    "stroke_px": 7,
+    "safe_box": [
+      65,
+      192,
+      1015,
+      1574
+    ]
+  },
+  "render": {
+    "argv": [
+      "/usr/bin/ffmpeg",
+      "-hide_banner",
+      "-nostdin",
+      "-v",
+      "warning",
+      "-filter_complex_threads",
+      "1",
+      "-protocol_whitelist",
+      "file",
+      "-f",
+      "mov",
+      "-i",
+      "file:/tmp/claude-0/-home-user-grok-knowledge-01/8b467678-8946-5a2c-9c41-3fb936d7aa54/scratchpad/golden2/inputs/fixture.mp4",
+      "-protocol_whitelist",
+      "file",
+      "-f",
+      "apng",
+      "-i",
+      "file:/tmp/claude-0/-home-user-grok-knowledge-01/8b467678-8946-5a2c-9c41-3fb936d7aa54/scratchpad/golden2/jobs/.DF-JOB-COMPOSE-GOLDEN-B.968e51gc/subs.apng",
+      "-filter_complex",
+      "[0:v]scale=w=1080:h=1920:force_original_aspect_ratio=increase:flags=bicubic,crop=1080:1920,setsar=1,fps=30[base];[1:v]format=rgba[subs];[base][subs]overlay=x=65:y=1255:eof_action=repeat[mix];[mix]format=yuv420p[vout]",
+      "-map",
+      "[vout]",
+      "-map",
+      "0:a:0",
+      "-t",
+      "6.000",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "veryfast",
+      "-crf",
+      "20",
+      "-profile:v",
+      "high",
+      "-pix_fmt",
+      "yuv420p",
+      "-threads",
+      "1",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-ar",
+      "48000",
+      "-ac",
+      "2",
+      "-map_metadata",
+      "-1",
+      "-map_chapters",
+      "-1",
+      "-fflags",
+      "+bitexact",
+      "-flags:v",
+      "+bitexact",
+      "-flags:a",
+      "+bitexact",
+      "-movflags",
+      "+faststart",
+      "-f",
+      "mp4",
+      "/tmp/claude-0/-home-user-grok-knowledge-01/8b467678-8946-5a2c-9c41-3fb936d7aa54/scratchpad/golden2/jobs/.DF-JOB-COMPOSE-GOLDEN-B.968e51gc/output.mp4"
+    ],
+    "elapsed_seconds": 5.105,
+    "stderr": {
+      "lines": [],
+      "error_lines": [],
+      "line_count": 0,
+      "truncated": false
+    },
+    "x264_threads": 1,
+    "deterministic_mode": true
+  },
+  "checks": {
+    "container_mp4": true,
+    "video_h264": true,
+    "resolution": true,
+    "pix_fmt_yuv420p": true,
+    "fps": true,
+    "audio_aac": true,
+    "duration": true,
+    "overlay_visible": true
+  },
+  "overlay_checks": [
+    {
+      "cue": 0,
+      "opaque_pixels": 44820,
+      "median_diff_output": 1.33,
+      "median_diff_source": 127.33,
+      "closer_to_subtitle_ratio": 0.8843,
+      "ok": true
+    },
+    {
+      "cue": 1,
+      "opaque_pixels": 104164,
+      "median_diff_output": 1.0,
+      "median_diff_source": 135.33,
+      "closer_to_subtitle_ratio": 0.8914,
+      "ok": true
+    },
+    {
+      "cue": 2,
+      "opaque_pixels": 67906,
+      "median_diff_output": 1.0,
+      "median_diff_source": 145.0,
+      "closer_to_subtitle_ratio": 0.8937,
+      "ok": true
+    }
+  ],
+  "output": {
+    "file": "output.mp4",
+    "sha256": "1494ea90c3b5723074bd814991cc8170176e68e7c02d92ecebb211fafdeb705b",
+    "bytes": 1956729,
+    "ffprobe_file": "output.ffprobe.json",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 6.0,
+    "uri": "file:///tmp/claude-0/-home-user-grok-knowledge-01/8b467678-8946-5a2c-9c41-3fb936d7aa54/scratchpad/golden2/jobs/DF-JOB-COMPOSE-GOLDEN-B/output.mp4"
+  },
+  "finished_at": "2026-10-14T03:47:18Z",
+  "elapsed_seconds": 8.677
+}

@@ -1,0 +1,25 @@
+{
+  "test_id": "DF-GT-COMPOSE-REPEAT",
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "runs": 20,
+  "mode": "3 cues (SRT), 1080x1920, 30fps",
+  "fixture_sha256": "a55b3e503858b242ed5b352f50ad2df63d8a0275242671c0f52a0b1d3b38e132",
+  "states": {
+    "ASSET_READY": 20
+  },
+  "distinct_output_sha256": {
+    "1494ea90c3b5723074bd814991cc8170176e68e7c02d92ecebb211fafdeb705b": 20
+  },
+  "deterministic": true,
+  "render_seconds": {
+    "min": 4.908,
+    "median": 5.101,
+    "max": 5.36
+  },
+  "wall_seconds": 169.8,
+  "max_rss_mb": {
+    "ffmpeg_children": 294,
+    "python": 106
+  },
+  "errors": []
+}

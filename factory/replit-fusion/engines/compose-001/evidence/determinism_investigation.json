@@ -1,0 +1,26 @@
+{
+  "investigation_id": "DF-INV-COMPOSE-DETERMINISM-001",
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "ffmpeg": "6.1.1-3ubuntu5",
+  "symptom": "같은 요청인데 출력 sha256 이 가끔 다름. 시험 test_deterministic_and_srt_equals_json 가 간헐 실패.",
+  "experiments": [
+    {"what": "엔진 전체, 자막 입력마다 PNG 입력 1개, x264 threads=2", "runs": 8, "distinct_outputs": 2,
+     "detail": "오디오 framemd5 동일. 영상 디코드 framemd5 는 마지막 5프레임(175~179)만 다름"},
+    {"what": "PNG 입력을 출력 fps 연속 스트림으로 바꿈, threads=2", "runs": 20, "distinct_outputs": 2,
+     "detail": "가설(입력 EOF 순서) 기각"},
+    {"what": "같은 argv, 인코딩 없이 필터 출력 framemd5 만", "runs": 150, "distinct_outputs": 1},
+    {"what": "같은 argv, 파일 출력, threads=2, rlimit 없음", "runs": 60, "distinct_outputs": 2,
+     "detail": "엔진 래퍼(rlimit, env)와 무관하게 재현"},
+    {"what": "갈라진 결과를 바로 비교 (threads=2)", "runs": 17, "distinct_outputs": 2,
+     "detail": "영상 프레임 163 하나만 디코드 내용과 패킷 바이트가 다름. 패킷 크기는 같음. 오디오 동일"},
+    {"what": "같은 argv, threads=1, 매번 새 파일", "runs": 100, "distinct_outputs": 1},
+    {"what": "엔진 전체, threads=1 (PNG 입력 방식)", "runs": 40, "distinct_outputs": 1},
+    {"what": "엔진 전체, threads=1, APNG 자막 트랙 (최종 구조)", "runs": 30, "distinct_outputs": 1},
+    {"what": "커밋 bd4713c 기준 repeat_run.py", "runs": 20, "distinct_outputs": 1, "evidence": "repeat_20.json"}
+  ],
+  "invalidated_experiment": "threads=1 150회 일치 기록 1건은 무효. 출력 파일이 이미 있으면 ffmpeg 6.1 이 'File exists. Exiting.' 과 함께 종료 코드 0 을 내어 실제 인코딩이 없었다. 매번 파일을 지우고 100회 다시 측정했다.",
+  "root_cause": "이 빌드의 libx264 다중 스레드 인코딩에서 드물게 한 프레임의 비트스트림이 달라지고, 참조 프레임을 따라 뒤 프레임으로 번진다.",
+  "fix": "Limits.ffmpeg_threads 기본값 1. 결과 JSON render.deterministic_mode 로 기록.",
+  "cost": "540x960 6초 기준 1.46초 → 2.13초 (단일 측정). 1080x1920 6초 렌더 중앙값 5.1초 (20회).",
+  "scope": "결정론은 같은 ffmpeg 빌드 안에서만 주장한다."
+}

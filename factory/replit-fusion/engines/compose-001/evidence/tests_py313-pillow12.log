@@ -1,0 +1,50 @@
+# py313-pillow12: python 3.13.16 pillow 12.3.0
+test_bad_job_ids (test_contract.ContractTests.test_bad_job_ids) ... ok
+test_font_checks (test_contract.ContractTests.test_font_checks) ... ok
+test_not_regular_file (test_contract.ContractTests.test_not_regular_file) ... ok
+test_nul_byte (test_contract.ContractTests.test_nul_byte) ... ok
+test_numbers (test_contract.ContractTests.test_numbers) ... ok
+test_path_outside_roots (test_contract.ContractTests.test_path_outside_roots) ... ok
+test_remote_schemes_rejected (test_contract.ContractTests.test_remote_schemes_rejected) ... ok
+test_symlink_escape (test_contract.ContractTests.test_symlink_escape) ... ok
+test_unknown_field_and_style_injection (test_contract.ContractTests.test_unknown_field_and_style_injection) ... ok
+test_valid_request (test_contract.ContractTests.test_valid_request) ... ok
+test_bad_srt (test_contract.SubtitleTests.test_bad_srt) ... ok
+test_clean_text_strips_controls (test_contract.SubtitleTests.test_clean_text_strips_controls) ... ok
+test_end_clipped_to_duration (test_contract.SubtitleTests.test_end_clipped_to_duration) ... ok
+test_srt_and_json_same_cues (test_contract.SubtitleTests.test_srt_and_json_same_cues) ... ok
+test_srt_bom_crlf (test_contract.SubtitleTests.test_srt_bom_crlf) ... ok
+test_subtitle_uri_must_be_inside_roots (test_contract.SubtitleTests.test_subtitle_uri_must_be_inside_roots) ... ok
+test_timing_rules (test_contract.SubtitleTests.test_timing_rules) ... ok
+test_drawn_subtitle_passes (test_overlay_check.OverlayCheckTests.test_drawn_subtitle_passes) ... ok
+test_missing_subtitle_fails (test_overlay_check.OverlayCheckTests.test_missing_subtitle_fails) ... ok
+test_wrong_position_fails (test_overlay_check.OverlayCheckTests.test_wrong_position_fails) ... ok
+test_rt01_subtitle_text_is_never_in_argv (test_redteam.InjectionTests.test_rt01_subtitle_text_is_never_in_argv) ... ok
+test_rt02_hostile_filename (test_redteam.InjectionTests.test_rt02_hostile_filename) ... ok
+test_rt03_hls_playlist_disguised_as_mp4 (test_redteam.MaliciousMediaTests.test_rt03_hls_playlist_disguised_as_mp4) ... ok
+test_rt04_concat_script_disguised (test_redteam.MaliciousMediaTests.test_rt04_concat_script_disguised) ... ok
+test_rt05_text_and_image_disguised (test_redteam.MaliciousMediaTests.test_rt05_text_and_image_disguised) ... ok
+test_rt06_truncated_mp4 (test_redteam.MaliciousMediaTests.test_rt06_truncated_mp4) ... ok
+test_rt07_audio_only_mp4 (test_redteam.MaliciousMediaTests.test_rt07_audio_only_mp4) ... ok
+test_rt08_dimension_limit (test_redteam.ResourceTests.test_rt08_dimension_limit) ... ok
+test_rt09_duration_limit (test_redteam.ResourceTests.test_rt09_duration_limit) ... ok
+test_rt10_input_size_limit (test_redteam.ResourceTests.test_rt10_input_size_limit) ... ok
+test_rt11_output_size_limit (test_redteam.ResourceTests.test_rt11_output_size_limit) ... ok
+test_rt12_memory_limit (test_redteam.ResourceTests.test_rt12_memory_limit) ... ok
+test_cue_too_long_for_area (test_render.RenderTests.test_cue_too_long_for_area) ... ok
+test_deterministic_and_srt_equals_json (test_render.RenderTests.test_deterministic_and_srt_equals_json) ... ok
+test_end_to_end (test_render.RenderTests.test_end_to_end) ... ok
+test_input_without_audio_gets_silent_aac (test_render.RenderTests.test_input_without_audio_gets_silent_aac) ... ok
+test_job_exists_is_not_overwritten (test_render.RenderTests.test_job_exists_is_not_overwritten) ... ok
+test_landscape_to_square_and_webm_input (test_render.RenderTests.test_landscape_to_square_and_webm_input) ... ok
+test_missing_glyph (test_render.RenderTests.test_missing_glyph) ... ok
+test_result_never_raises (test_render.RenderTests.test_result_never_raises) ... ok
+test_timeout_rolls_back (test_render.RenderTests.test_timeout_rolls_back) ... ok
+test_200_cues_single_track_input (test_timing.TimingTests.test_200_cues_single_track_input) ... ok
+test_cue_shorter_than_frame (test_timing.TimingTests.test_cue_shorter_than_frame) ... ok
+test_visible_only_inside_window (test_timing.TimingTests.test_visible_only_inside_window) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 47.829s
+
+OK

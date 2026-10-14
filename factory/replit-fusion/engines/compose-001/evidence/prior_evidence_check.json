@@ -1,0 +1,26 @@
+{
+  "check_id": "DF-CHK-PRIOR-MOVIEPY-001",
+  "checked_at": "2026-10-14",
+  "environment_label": "SANDBOX/claude-code-remote-container (NOT Replit)",
+  "read_from": "git origin/ccr-851f8c46-le8k84:factory/replit-fusion/golden-test/evidence/DF-GT-VIDEO-001.json (commit 9b79d9b)",
+  "files_rehashed_from": "같은 세션 scratchpad 의 원래 렌더 산출물 (mp4 는 커밋하지 않았음)",
+  "hash_checks": [
+    {"item": "DF-GT-VIDEO-001 source_16x9.mp4", "recorded": "106c37a3f8af49c5615a9c49204c6c73fcaa661e5c14bb35bad41afe838b083e", "match": true},
+    {"item": "DF-GT-VIDEO-001 short_9x16.mp4", "recorded": "af839bdf862528699eadbec7232552806bdd75328ec6c011dc4a16caf581dee8", "match": true},
+    {"item": "DF-GT-VIDEO-001 short_frame_t2.png", "recorded": "9744c7f92a87a399b49648cabef281346f8c5dcb7611b3971a99f72e9606f41e", "match": true},
+    {"item": "DF-GT-VIDEO-002 source (auto-editor 입력)", "recorded": "106c37a3f8af49c5615a9c49204c6c73fcaa661e5c14bb35bad41afe838b083e", "match": true},
+    {"item": "DF-GT-VIDEO-002 ae_cut.mp4", "match": true}
+  ],
+  "version_discrepancy": {
+    "pip_metadata": "2.2.1",
+    "module___version__": "2.1.2",
+    "installed_file": "site-packages/moviepy/version.py: __version__ = \"2.1.2\"",
+    "upstream_tag_v2.2.1": {
+      "tag_sha": "f515b100e1fd069da6f29d5b01b1d42b52d8068d",
+      "moviepy/version.py": "__version__ = \"2.1.2\"",
+      "pyproject.toml": "version = \"2.2.1\""
+    },
+    "verdict": "상류 결함. 릴리스 v2.2.1 에서 version.py 를 올리지 않았다. 설치 메타데이터(importlib.metadata) 를 정본으로 쓴다. 이전 증거는 두 값을 모두 기록하고 있어 정정 불필요."
+  },
+  "limits": "mp4 원본은 이 세션 scratchpad 에만 있었다. 새 세션에서는 golden-test/moviepy_smoke.py 로 원본을 다시 만들 수 있고 원본 해시는 결정론적으로 같아야 한다(같은 세션 2회 실행에서 일치 확인)."
+}
