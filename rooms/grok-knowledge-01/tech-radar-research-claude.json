@@ -1,0 +1,23 @@
+{
+  "id": "radar-2026-claude-01",
+  "room": "grok-knowledge-01",
+  "lot": "DF-MULTIAI-TECH-RADAR-RESEARCH-20261015-001",
+  "title": "Technology Radar & Component Intake Pipeline — Claude independent thesis",
+  "status": "draft",
+  "source_ai": "claude",
+  "date_checked": "2026-10-15",
+  "sensitivity": "none",
+  "summary_en": "Build the Radar as a batch pipeline, not an agent: one GitHub repo, scheduled Actions calling public APIs, static JSON registry, deterministic gates and FAST score. GPT HQ controls it via typed radar-control:v1 issues. Code changes only in a secret-free lab repo via branch and PR with CI evidence; one human merge; Visual pins the tag behind an adapter, ErrorBoundary and flag.",
+  "markdown": "rooms/grok-knowledge-01/tech-radar-research-claude.md",
+  "decisions": [
+    "runtime: github-actions-batch, no-agent",
+    "storage: github-json-registry, sqlite-asset-later, supabase-only-for-concurrent-ui-edits",
+    "control: github-issue radar-control:v1, closed command set",
+    "mcp: hybrid, direct-apis-for-ingest, github-mcp-read-only-for-inspection, no-custom-mcp-phase-1",
+    "code-change: lab-repo branch+pr, ci-evidence, one-human-merge",
+    "dock: adapter + error-boundary + feature-flag + pinned-version",
+    "visual: one-tile + lazy /technology-radar route",
+    "reject: backstage, scrapers, auto-merge, aggregator-mcp",
+    "license: spdx-allowlist gate, agpl-gpl-pattern-only"
+  ]
+}
