@@ -1,0 +1,375 @@
+{
+ "doc_id": "DF-KR-PAPER-MCP-RADAR-20261029-R01",
+ "score_axes": {
+  "K30": "한국 논문 커버리지",
+  "F20": "원문 접근",
+  "R15": "레이더 기능",
+  "I10": "설치·인증",
+  "M10": "유지관리",
+  "L10": "라이선스",
+  "P5": "협업·출처성"
+ },
+ "verification_levels": [
+  "static",
+  "smoke",
+  "live"
+ ],
+ "candidates": [
+  {
+   "rank": 1,
+   "name": "korea-scholarship-mcp",
+   "score": 80,
+   "scores": {
+    "K30": 24,
+    "F20": 10,
+    "R15": 13,
+    "I10": 9,
+    "M10": 9,
+    "L10": 10,
+    "P5": 5
+   },
+   "github": "https://github.com/ckgerteis/korea-scholarship-mcp",
+   "web": [
+    "https://doi.org/10.5281/zenodo.22305407",
+    "https://glama.ai/mcp/servers/ckgerteis/korea-scholarship-mcp"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-10-12 66aeda3",
+   "version": "0.6.3 (git)",
+   "sources": [
+    "KCI",
+    "OAK"
+   ],
+   "key_required": "KCI REST 도구만 KCI_API_KEY 필요; OAI-PMH 4개 도구는 키 없음",
+   "full_text": "OA 원문 링크(OAK)",
+   "radar": "OAI-PMH 수확, 참고문헌, 저널 인용지표, 해시체인 질의 원장",
+   "risks": [
+    "ScienceON·RISS·DBpia 미지원",
+    "PyPI 미배포"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 2,
+   "name": "scienceON-mcp (rubatoyd)",
+   "score": 75,
+   "scores": {
+    "K30": 22,
+    "F20": 8,
+    "R15": 13,
+    "I10": 8,
+    "M10": 10,
+    "L10": 10,
+    "P5": 4
+   },
+   "github": "https://github.com/rubatoyd/scienceON-mcp",
+   "web": [
+    "https://github.com/rubatoyd/scienceON-mcp/releases",
+    "https://glama.ai/mcp/servers/rubatoyd/scienceon-mcp"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-10-29 877c34d",
+   "version": "0.5.1 (git/.mcpb)",
+   "sources": [
+    "ScienceON"
+   ],
+   "key_required": "ScienceON API 키+Client ID+MAC 등록",
+   "full_text": "초록·원문 URL 수준",
+   "radar": "대량 수집 xlsx/csv/json/sqlite, 다중 검색그룹 코퍼스",
+   "risks": [
+    "PyPI scienceon-mcp는 다른 개발자(ansua79) 패키지"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 3,
+   "name": "kisti-mcp",
+   "score": 74,
+   "scores": {
+    "K30": 27,
+    "F20": 14,
+    "R15": 12,
+    "I10": 6,
+    "M10": 8,
+    "L10": 4,
+    "P5": 3
+   },
+   "github": "https://github.com/ansua79/kisti-mcp",
+   "web": [
+    "https://pypi.org/project/kisti-mcp/"
+   ],
+   "license": "CC BY-NC 4.0",
+   "last_commit": "2026-07-01 1c15d5f",
+   "version": "0.3.32.2 (PyPI)",
+   "sources": [
+    "ScienceON",
+    "NTIS",
+    "DataON"
+   ],
+   "key_required": "ScienceON 키 세트, NTIS API별 키(1년), DataON 기관 사용자만",
+   "full_text": "DOI·원문 URL",
+   "radar": "논문·특허·보고서·국가R&D·연구데이터·기술트렌드 32 도구",
+   "risks": [
+    "비상업 라이선스",
+    "키 발급 부담"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 4,
+   "name": "KCI_openAPI (kci-openapi-mcp)",
+   "score": 72,
+   "scores": {
+    "K30": 20,
+    "F20": 6,
+    "R15": 13,
+    "I10": 9,
+    "M10": 10,
+    "L10": 10,
+    "P5": 4
+   },
+   "github": "https://github.com/rubatoyd/KCI_openAPI",
+   "web": [
+    "https://pluginbench.com/mcp/io.github.rubato103/kci-openapi-mcp"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-10-29 b311008",
+   "version": "0.3.6 (git/.mcpb)",
+   "sources": [
+    "KCI"
+   ],
+   "key_required": "REST만 KCI_API_KEY; OAI-PMH 무인증",
+   "full_text": "메타데이터 중심",
+   "radar": "kci_collect 자동 라우팅·파일 저장, 참고문헌, 저널 IF",
+   "risks": [
+    "레지스트리 원 저장소(rubato103) 접근 불가",
+    "1번과 기능 중복"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 5,
+   "name": "arxiv-mcp-server",
+   "score": 70,
+   "scores": {
+    "K30": 2,
+    "F20": 19,
+    "R15": 15,
+    "I10": 10,
+    "M10": 10,
+    "L10": 10,
+    "P5": 4
+   },
+   "github": "https://github.com/blazickjp/arxiv-mcp-server",
+   "web": [
+    "https://pypi.org/project/arxiv-mcp-server/",
+    "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.blazickjp%2Farxiv-mcp-server/versions/latest"
+   ],
+   "license": "Apache-2.0",
+   "last_commit": "2026-10-08 572e301",
+   "version": "0.8.2 (PyPI)",
+   "sources": [
+    "arXiv",
+    "Semantic Scholar(인용)"
+   ],
+   "key_required": "없음(S2 키 선택)",
+   "full_text": "원문 Markdown·LaTeX 섹션 읽기",
+   "radar": "watch_topic/check_alerts 알림, citation_graph, BibTeX",
+   "risks": [
+    "한국 논문 거의 없음"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 6,
+   "name": "paper-search-mcp",
+   "score": 66,
+   "scores": {
+    "K30": 5,
+    "F20": 18,
+    "R15": 11,
+    "I10": 9,
+    "M10": 9,
+    "L10": 10,
+    "P5": 4
+   },
+   "github": "https://github.com/openags/paper-search-mcp",
+   "web": [
+    "https://pypi.org/project/paper-search-mcp/",
+    "https://smithery.ai/server/@openags/paper-search-mcp"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-10-02 cab1b5c",
+   "version": "0.1.4 (PyPI)",
+   "sources": [
+    "arXiv",
+    "PMC",
+    "Europe PMC",
+    "CORE",
+    "OpenAlex",
+    "Semantic Scholar",
+    "DOAJ",
+    "Zenodo",
+    "HAL 등 약 24개"
+   ],
+   "key_required": "대부분 키 없음(선택 키로 한도 상향)",
+   "full_text": "OA 원문 다운로드·읽기, 순차 폴백",
+   "radar": "다중 소스 동시 검색·중복 제거",
+   "risks": [
+    "한국 소스 없음",
+    "Google Scholar CAPTCHA"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 7,
+   "name": "zotero-mcp",
+   "score": 64,
+   "scores": {
+    "K30": 6,
+    "F20": 18,
+    "R15": 8,
+    "I10": 7,
+    "M10": 10,
+    "L10": 10,
+    "P5": 5
+   },
+   "github": "https://github.com/54yyyu/zotero-mcp",
+   "web": [
+    "https://pypi.org/project/zotero-mcp-server/"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-10-16 eb016b1",
+   "version": "0.15.1 (PyPI)",
+   "sources": [
+    "사용자 Zotero 라이브러리"
+   ],
+   "key_required": "로컬 Zotero(쓰기는 API 키 선택)",
+   "full_text": "내 PDF 원문·페이지 읽기·주석",
+   "radar": "의미 검색, 그룹 라이브러리 공유",
+   "risks": [
+    "내 라이브러리만 검색"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 8,
+   "name": "riss (RISS MCP Server)",
+   "score": 63,
+   "scores": {
+    "K30": 24,
+    "F20": 8,
+    "R15": 9,
+    "I10": 5,
+    "M10": 6,
+    "L10": 10,
+    "P5": 1
+   },
+   "github": "https://github.com/auraweon7-ship-it/riss",
+   "web": [
+    "https://www.riss.kr/apicenter/apiSearchThesis.do"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-04-27 3306af2",
+   "version": "1.0.0 (Node)",
+   "sources": [
+    "RISS 학위논문",
+    "RISS 학술지"
+   ],
+   "key_required": "RISS API 키",
+   "full_text": "원문 파일 정보",
+   "radar": "저자별·최신 논문 검색",
+   "risks": [
+    "공용 URL이 키를 쿼리로 전달 → 셀프호스트 필수"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 9,
+   "name": "semantic-scholar-fastmcp",
+   "score": 53,
+   "scores": {
+    "K30": 4,
+    "F20": 8,
+    "R15": 13,
+    "I10": 9,
+    "M10": 6,
+    "L10": 10,
+    "P5": 3
+   },
+   "github": "https://github.com/zongmin-yu/semantic-scholar-fastmcp-mcp-server",
+   "web": [
+    "https://pypi.org/project/semantic-scholar-fastmcp/",
+    "https://smithery.ai/server/semantic-scholar-fastmcp-mcp-server"
+   ],
+   "license": "MIT",
+   "last_commit": "2026-03-20 68e7b06",
+   "version": "0.1.2 (PyPI)",
+   "sources": [
+    "Semantic Scholar"
+   ],
+   "key_required": "없음(키 선택)",
+   "full_text": "OA PDF 링크",
+   "radar": "인용 네트워크·저자·추천 16 도구",
+   "risks": [
+    "한국어 커버리지 약함",
+    "업데이트 7개월 전"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  },
+  {
+   "rank": 10,
+   "name": "korea-academic-mcp",
+   "score": 52,
+   "scores": {
+    "K30": 28,
+    "F20": 4,
+    "R15": 5,
+    "I10": 5,
+    "M10": 6,
+    "L10": 2,
+    "P5": 2
+   },
+   "github": "https://github.com/PhDHan88/korea-academic-mcp",
+   "web": [
+    "https://glama.ai/mcp/servers/PhDHan88/korea-academic-mcp"
+   ],
+   "license": null,
+   "last_commit": "2026-07-22 dcb7398",
+   "version": "1.0.0 (Smithery)",
+   "sources": [
+    "KCI",
+    "DBpia",
+    "RISS"
+   ],
+   "key_required": "DBpia·KCI·RISS 키 각각(RISS 기관 승인)",
+   "full_text": "원문 다운로드 범위 밖",
+   "radar": "3원 검색만",
+   "risks": [
+    "LICENSE 파일 없음",
+    "도구 3개"
+   ],
+   "verified_by": "Claude Code remote session",
+   "verified_at": "2026-10-29",
+   "verification": "static"
+  }
+ ]
+}
