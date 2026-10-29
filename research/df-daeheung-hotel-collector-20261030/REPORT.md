@@ -216,5 +216,5 @@
 
 ## 10. RESULT_URL
 
-- Google Drive 보고서: (업로드 후 기재 — 이 문서의 Drive 사본에는 자기 URL이 들어 있지 않다. 채팅 응답의 URL을 기준으로 한다)
+- Google Drive 보고서: https://docs.google.com/document/d/1fH2nOp1GglQOBCi45W-bGdghGUTUyt1feIe0PkjC2pI/edit
 - GitHub 사본: `biztradepros/grok-knowledge-01` 브랜치 `ccr-b405f61b-bk8mms`, 경로 `research/df-daeheung-hotel-collector-20261030/` (approved 자료방 목록에는 올리지 않음)
