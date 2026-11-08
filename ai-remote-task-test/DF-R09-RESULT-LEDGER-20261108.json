@@ -1,0 +1,59 @@
+{
+  "schema": "dream-factories/five-ai-relay-ledger/v1",
+  "job_id": "DF-R09-FIVE-AI-RELAY-20261108-001",
+  "control": "GPT ROOM-16",
+  "spec_blob_sha": "bd8f468826216f525597dcbcebcefbfd9a2dbcac",
+  "bridge_blob_sha": "df74bea69b66ac3cfb6d4605ad706fa43e83d908",
+  "bridge_sha256": "14432fc342c49a150764b49522d06fb5153660eac4baa256f70d17bcbc79e7a1",
+  "participants_execution": {
+    "GPT_ROOM_16": {
+      "run_id": "COMMIT-f8b37aa92755",
+      "trigger_mode": "MANUAL",
+      "status": "PASS",
+      "evidence": "jobs/DF-R09-FIVE-AI-RELAY-20261108-001/spec.json"
+    },
+    "GROK_AI": {
+      "run_id": "grok-session-r09-20261108",
+      "trigger_mode": "MANUAL",
+      "started_at": "2026-11-08T13:49:00Z",
+      "finished_at": "2026-11-08T13:50:00Z",
+      "status": "PASS",
+      "evidence_commit": "916513575f6c79636c4dd20dfa67f3e7d4c0f62a"
+    },
+    "ANTIGRAVITY": {
+      "run_id": "EXEC-R09-ANTI-HUB-task-123",
+      "trigger_mode": "AUTO",
+      "human_intervention_count": 0,
+      "started_at": "2026-11-08T13:50:24Z",
+      "finished_at": "2026-11-08T13:51:06Z",
+      "math_result": { "sum": 19100, "average": 4775.0, "match": true },
+      "output_sha256": "2eda79a72fd0cdd85f820210026599ac8a68ad520400bf08727a6dbef9cce5e0",
+      "status": "PASS"
+    },
+    "GROKBOT_CURSOR": {
+      "run_id": "EXEC-R09-GROKBOT-CURSOR-20261108",
+      "trigger_mode": "MANUAL",
+      "started_at": "2026-11-08T13:52:26Z",
+      "finished_at": "2026-11-08T13:52:32Z",
+      "short_message_echo": "DREAM_5AI_RELAY_TEST",
+      "verified_bridge_sha256": "14432fc342c49a150764b49522d06fb5153660eac4baa256f70d17bcbc79e7a1",
+      "output_sha256": "2f6c23fc1da93bd3ba330377e69c240acf5365d0e76fe8e900b50a2a60c529c7",
+      "status": "PASS"
+    },
+    "CLAUDE": {
+      "run_id": "EXEC-R09-CLAUDE-REVIEW-20261108",
+      "trigger_mode": "MANUAL",
+      "started_at": "2026-11-08T13:53:19Z",
+      "finished_at": "2026-11-08T13:53:19Z",
+      "math_independent_check": { "sum": 19100, "average": 4775, "status": "MATCH_CONFIRMED" },
+      "copy_review": {
+        "typo_detected": "싶폼 -> 숏폼",
+        "corrected_copy": "아바타 이상형 세계 편집 + 3초 후킹 + 무인 AI 릴레이가 현재 숏폼/가상 인플루언서 핵심 트렌드. 계산 검증과 한국어 태그라인 조합이 효과적.",
+        "review_status": "PASS_AFTER_CORRECTION"
+      },
+      "output_sha256": "8365f402ecac7bc35b15d3b77bda333bfa0c61d7632b5595f0591d87aa130d73",
+      "status": "PASS"
+    }
+  },
+  "overall_relay_status": "FIVE_AI_RELAY_EXECUTION_COMPLETE_AWAITING_GPT_VERIFY"
+}
