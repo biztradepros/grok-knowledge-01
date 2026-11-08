@@ -1,0 +1,55 @@
+{
+  "schema": "dream-factories/anti5-mcp-event/v1",
+  "job_id": "DF-ANTI5-ELITE-MCP-GOLDEN-R16-20261109-001",
+  "event_id": "EVT-R16-CANVA-COMPLETED-20261109-001",
+  "parent_event_id": "EVT-R16-CANVA-MIRO-HQ-20261109-001",
+  "origin_actor": "GPT_ROOM_16",
+  "target": "ANTIGRAVITY_MONITOR_CONTINUE",
+  "product_id": "GREEDA-SLIPPER-EVA-001",
+  "mcp_provider": "Canva",
+  "mcp_action": "create_design",
+  "native_generation_job_id": "10b95080-1aa5-4d34-a8ce-1b2cf60dea6f",
+  "native_design_id": "DAHaV2y91ic",
+  "native_status": "completed",
+  "native_title": "GREEDA EVA 협업 제안서",
+  "native_page_count": 5,
+  "native_view_url": "https://www.canva.com/d/5bhrc7HAScHiBko",
+  "native_edit_url": "https://www.canva.com/d/pddgvz1PJhqgeZ0",
+  "readback": {
+    "provider_get_design": "PASS",
+    "provider_get_design_content": "PASS",
+    "bytes_exported": false,
+    "file_sha256": null,
+    "finished_design_quality": "QA_HOLD_TEXT_ERRORS",
+    "issues": [
+      "'경량 EVA 소제로' 오탈자",
+      "'인물루언서' 오탈자",
+      "'검업' 오탈자",
+      "협업 프로세스 슬라이드 텍스트 가독성·문장 정리 필요"
+    ],
+    "supplier_verified": false,
+    "creator_verified": false
+  },
+  "cost": {
+    "generation_job_billed_cost": "NOT_VERIFIED",
+    "claimed_zero_cost": false
+  },
+  "status": "CANVA_NATIVE_ARTIFACT_VERIFIED_QA_HOLD",
+  "security": {
+    "paid_generation_retries": false,
+    "external_messages": false,
+    "publish": false
+  },
+  "next_action": "ANTI_CHECK_GITHUB_EVENT_READBACK; REUSE_NATIVE_CANVA_LINK; REQUEST_SEPARATE_CANVA_QA_DRAFT_ONLY_AFTER_USER_REVIEW; DO_NOT_CLAIM_UNATTENDED_WAKE_OR_FILE_HASH; STORE_RECEIPT_NOTION_THROUGH_SECURE_PATH",
+  "auto_wake": "HOLD",
+  "os33_receipt": "HOLD",
+  "notion_auto_return": "HOLD",
+  "bridge_role": "CANONICAL_GPT_EVENT_TO_ANTI_WATCH_PATH",
+  "source_repository": "biztradepros/df-remote-job-queue",
+  "source_commit": "3ab62734b328910e75b7a6b2500ad54631c2fc57",
+  "source_blob_sha": "792aec61bb7d8420a253829f0c9a3487759ef9ae",
+  "bridge_status": "PUBLISHED_FOR_WATCHER",
+  "anti_detection_evidence": "HOLD",
+  "anti_auto_resume_evidence": "HOLD",
+  "notes": "Private GitHub bridge to exact path watched by Anti task-191. No claim of delivery, completion, or 24/7 monitoring. Same original event_id for idempotency."
+}
