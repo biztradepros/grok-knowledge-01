@@ -1,0 +1,33 @@
+{
+  "job_id": "DF-R09-FIVE-AI-RELAY-20261108-001",
+  "source_spec_blob_sha": "bd8f468826216f525597dcbcebcefbfd9a2dbcac",
+  "gpt_spec_content": {
+    "schema": "dream-factories/five-ai-relay/v1",
+    "job_id": "DF-R09-FIVE-AI-RELAY-20261108-001",
+    "control": "GPT ROOM-16",
+    "mode": "SAFE_EVIDENCE_ONLY",
+    "phase": "DISPATCHED",
+    "participants": [
+      {"id": "GPT", "role": "control_and_independent_readback"},
+      {"id": "ANTIGRAVITY", "role": "executor_and_handoff_hub"},
+      {"id": "GROK_AI", "role": "model_reasoning"},
+      {"id": "GROKBOT", "role": "message_transport_and_receipt"},
+      {"id": "CLAUDE", "role": "independent_review"}
+    ],
+    "task": {
+      "type": "bounded_math_and_copy_review",
+      "input": [1200, 3400, 5600, 8900],
+      "expected_sum": 19100,
+      "expected_average": 4775,
+      "short_message": "DREAM_5AI_RELAY_TEST"
+    }
+  },
+  "grok_ai_execution": {
+    "agent": "grok_ai",
+    "execution_id": "grok-session-r09-20261108",
+    "started_at": "2026-11-08T13:49:00Z",
+    "finished_at": "2026-11-08T13:50:00Z",
+    "trend_analysis": "아바타 이상형 세계 편집 + 3초 후킹 + 무인 AI 릴레이가 현재 싶폼/가상 인플루언서 핵심 트렌드. 계산 검증과 한국어 태그라인 조합이 효과적.",
+    "issue_1_comment_url": "https://github.com/biztradepros/df-remote-job-queue/issues/1"
+  }
+}
